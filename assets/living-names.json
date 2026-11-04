@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "policy": "无生卒信息一律按在世处理",
+  "note": "判据表：出现下列姓名即视为违规，须改写为可观察特征。收录口径=在世 + 去世未满 50 年（著作权保护期未过）+ 生卒不明者，宁多勿漏。kind 取值：photographer / cinematographer / director / animator / artist。features 是该姓名对应的可观察特征，改写时照抄这组特征、删掉姓名。已进入公有领域的画派与已故名（去世满 50 年）不在此表，但仍建议带特征使用：本表的用途是判违规，不是艺术史分类。",
+  "names": [
+    {
+      "name": "Hayao Miyazaki",
+      "zh": "宫崎骏",
+      "kind": "animator",
+      "features": "湛蓝、草绿与飞行器红的三色配比，仰视的大动态构图，水彩手绘的柔和晕染配清晰线稿，明亮的自然天光，细腻温暖的怀旧感"
+    },
+    {
+      "name": "Makoto Shinkai",
+      "zh": "新海诚",
+      "kind": "animator",
+      "features": "青蓝与橘粉的渐变天空，强烈逆光带光晕，细密写实的背景加柔和的人物描线，青春感伤的情绪落点"
+    },
+    {
+      "name": "Satoshi Kon",
+      "zh": "今敏",
+      "kind": "animator",
+      "features": "冷灰现实与血红幻象的突变对比，失衡的倾斜构图，写实厚涂加快速剪辑般的叠影，硬光与闪频错觉"
+    },
+    {
+      "name": "Yayoi Kusama",
+      "zh": "草间弥生",
+      "kind": "artist",
+      "features": "鲜红、纯白与黑的波点配色，沉浸式无限反射的空间，圆点的平涂质感加陶瓷光泽，均匀的冷白荧光"
+    },
+    {
+      "name": "Ansel Adams",
+      "zh": "安塞尔·亚当斯",
+      "kind": "photographer",
+      "features": "黑白风光的分区曝光灰阶，从极黑到极白的完整色阶，前后景一致清晰、边缘锐利"
+    },
+    {
+      "name": "Henri Cartier-Bresson",
+      "zh": "亨利·卡蒂埃-布列松",
+      "kind": "photographer",
+      "features": "几何切割的街头瞬间，主体与背景构成互为呼应，35mm 自然透视，不干预的被摄状态"
+    },
+    {
+      "name": "Saul Leiter",
+      "zh": "索尔·雷特",
+      "kind": "photographer",
+      "features": "隔湿玻璃看到的碎片色块，朦胧遮挡的前景切掉半个画面，被切割的饱和色斑"
+    },
+    {
+      "name": "William Eggleston",
+      "zh": "威廉·埃格尔斯顿",
+      "kind": "photographer",
+      "features": "平淡日常题材的高饱和色，正视的平光与正面机位，色彩浓度高于题材重要性"
+    },
+    {
+      "name": "Gregory Crewdson",
+      "zh": "格雷戈里·克鲁德森",
+      "kind": "photographer",
+      "features": "精心布光的电影化场景，舞台式敞开的室内或街景，日常里的异样静止感，人物背对或停滞"
+    },
+    {
+      "name": "Steve McCurry",
+      "zh": "史蒂夫·麦凯瑞",
+      "kind": "photographer",
+      "features": "浓烈饱和的色彩，直视镜头的强凝视，环境色参与构图而非只作背景"
+    },
+    {
+      "name": "Annie Leibovitz",
+      "zh": "安妮·莱博维茨",
+      "kind": "photographer",
+      "features": "单点硬主光压在人像一侧，背景留可读的叙事道具，皮肤保留毛孔与细纹"
+    },
+    {
+      "name": "Lang Jingshan",
+      "zh": "郎静山",
+      "kind": "photographer",
+      "features": "多底合成的仿水墨山峦，远山层层退淡的留白层次，宣纸般的灰调与颗粒"
+    },
+    {
+      "name": "Fan Ho",
+      "zh": "何藩",
+      "kind": "photographer",
+      "features": "逆光光束斜切街巷，几何阴影托出人物剪影，市井尘埃在光柱里可见"
+    },
+    {
+      "name": "Hiroshi Sugimoto",
+      "zh": "杉本博司",
+      "kind": "photographer",
+      "features": "长曝光抹平的海平线，极简的单一水平分割，影院屏幕式的纯白发光矩形"
+    },
+    {
+      "name": "Roger Deakins",
+      "zh": "罗杰·迪金斯",
+      "kind": "cinematographer",
+      "features": "实景光作唯一光源，烟雾或尘土中可见的光束，克制的冷调整体配一处暖点"
+    },
+    {
+      "name": "Wong Kar-wai",
+      "zh": "王家卫",
+      "kind": "director",
+      "features": "霓虹绿与暗红对撞的窄巷，轻微倾斜的构图，湿地面反射招牌光，抽格拖影"
+    },
+    {
+      "name": "Christopher Doyle",
+      "zh": "杜可风",
+      "kind": "cinematographer",
+      "features": "手持的抽格残影，饱和绿与饱和红对撞，门框与镜面把画面切成不完整的两半"
+    },
+    {
+      "name": "Zhang Yimou",
+      "zh": "张艺谋",
+      "kind": "director",
+      "features": "单一色相铺满九成画面，人物作小面积对比色点，色块边界干净无渐变"
+    },
+    {
+      "name": "Hou Hsiao-hsien",
+      "zh": "侯孝贤",
+      "kind": "director",
+      "features": "自然光长镜头，门框内景作深浅景，克制的静态机位与不加干预的构图"
+    },
+    {
+      "name": "Mark Lee Ping-Bing",
+      "zh": "李屏宾",
+      "kind": "cinematographer",
+      "features": "烛火与油灯作唯一光源，暖橙在暗部里呼吸，缓慢横移的长镜"
+    },
+    {
+      "name": "Akira Kurosawa",
+      "zh": "黑泽明",
+      "kind": "director",
+      "features": "雨、风、旗、尘的天气驱动构图，群像沿对角线排布，前景剪影压住画面下缘"
+    },
+    {
+      "name": "Wes Anderson",
+      "zh": "韦斯·安德森",
+      "kind": "director",
+      "features": "绝对对称的正面机位，粉彩平涂色卡，截面式剖面构图，人物居中且正面朝前"
+    },
+    {
+      "name": "Denis Villeneuve",
+      "zh": "丹尼斯·维伦纽瓦",
+      "kind": "director",
+      "features": "巨物压境的极简单色调，尘土与雾把远景吞掉，微小人影作尺度参照"
+    }
+  ]
+}

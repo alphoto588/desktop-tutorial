@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" width="1200" height="430" role="img" aria-label="工作流：需求澄清 → 检索风格 → 组装模板 → 模型适配 → 双语正文">
+  <defs>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d8d1c4"/>
+      <stop offset="1" stop-color="#b9ac97"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="430" fill="#fbfaf7"/>
+
+  <text x="30" y="46" font-family="'PingFang SC','Microsoft YaHei',-apple-system,sans-serif"
+        font-size="15" font-weight="600" fill="#1c1b19">一条提示词是怎么生成的</text>
+  <text x="30" y="70" font-family="'PingFang SC','Microsoft YaHei',-apple-system,sans-serif"
+        font-size="12.5" fill="#6f6a63">五步，前三步决定画面对不对，后两步决定模型能不能吃</text>
+
+  <!-- 步骤卡 -->
+  <g font-family="'PingFang SC','Microsoft YaHei',-apple-system,sans-serif">
+    <!-- 01 -->
+    <rect x="30" y="104" width="196" height="172" rx="14" fill="#ffffff" stroke="#e6e0d6"/>
+    <circle cx="56" cy="130" r="13" fill="#1c1b19"/>
+    <text x="56" y="135" font-size="11.5" fill="#fff" text-anchor="middle" font-family="ui-monospace,monospace">01</text>
+    <text x="78" y="135" font-size="15" font-weight="600" fill="#1c1b19">需求澄清</text>
+    <text x="48" y="168" font-size="12.5" fill="#4a463f">先确认五件事：</text>
+    <text x="48" y="190" font-size="12.5" fill="#6f6a63">主体 · 风格 · 场景</text>
+    <text x="48" y="212" font-size="12.5" fill="#6f6a63">目标模型 · 关键参数</text>
+    <text x="48" y="246" font-size="11.5" fill="#a8482d">缺模型就列 17 项让你选</text>
+
+    <!-- 02 -->
+    <rect x="266" y="104" width="196" height="172" rx="14" fill="#ffffff" stroke="#e6e0d6"/>
+    <circle cx="292" cy="130" r="13" fill="#1c1b19"/>
+    <text x="292" y="135" font-size="11.5" fill="#fff" text-anchor="middle" font-family="ui-monospace,monospace">02</text>
+    <text x="314" y="135" font-size="15" font-weight="600" fill="#1c1b19">检索风格</text>
+    <text x="284" y="168" font-size="12.5" fill="#4a463f">173 条库里找锚点</text>
+    <text x="284" y="190" font-size="12.5" fill="#6f6a63">口语「高级感」→ 编号</text>
+    <text x="284" y="212" font-size="12.5" fill="#6f6a63">给 2–3 个候选与差异</text>
+    <text x="284" y="246" font-size="11.5" fill="#8a6d3b">近邻易混会提示先分辨</text>
+
+    <!-- 03 -->
+    <rect x="502" y="104" width="196" height="172" rx="14" fill="#ffffff" stroke="#e6e0d6"/>
+    <circle cx="528" cy="130" r="13" fill="#1c1b19"/>
+    <text x="528" y="135" font-size="11.5" fill="#fff" text-anchor="middle" font-family="ui-monospace,monospace">03</text>
+    <text x="550" y="135" font-size="15" font-weight="600" fill="#1c1b19">组装模板</text>
+    <text x="520" y="168" font-size="12.5" fill="#4a463f">只换【画面主体】</text>
+    <text x="520" y="190" font-size="12.5" fill="#6f6a63">色彩 / 构图 / 质感</text>
+    <text x="520" y="212" font-size="12.5" fill="#6f6a63">光影 / 情绪 原样保留</text>
+    <text x="520" y="246" font-size="11.5" fill="#a8482d">改一处风格就散了</text>
+
+    <!-- 04 -->
+    <rect x="738" y="104" width="196" height="172" rx="14" fill="#ffffff" stroke="#e6e0d6"/>
+    <circle cx="764" cy="130" r="13" fill="#1c1b19"/>
+    <text x="764" y="135" font-size="11.5" fill="#fff" text-anchor="middle" font-family="ui-monospace,monospace">04</text>
+    <text x="786" y="135" font-size="15" font-weight="600" fill="#1c1b19">模型适配</text>
+    <text x="756" y="168" font-size="12.5" fill="#4a463f">按目标模型重排</text>
+    <text x="756" y="190" font-size="12.5" fill="#6f6a63">语序 · 负向 · 步数</text>
+    <text x="756" y="212" font-size="12.5" fill="#6f6a63">尺寸取 16 / 64 倍数</text>
+    <text x="756" y="246" font-size="11.5" fill="#8a6d3b">编辑模型改写成指令</text>
+
+    <!-- 05 -->
+    <rect x="974" y="104" width="196" height="172" rx="14" fill="#1c1b19"/>
+    <circle cx="1000" cy="130" r="13" fill="#f0c26a"/>
+    <text x="1000" y="135" font-size="11.5" fill="#1c1b19" text-anchor="middle" font-family="ui-monospace,monospace">05</text>
+    <text x="1022" y="135" font-size="15" font-weight="600" fill="#ffffff">双语正文</text>
+    <text x="992" y="168" font-size="12.5" fill="#e7e1d5">中文一段，空行</text>
+    <text x="992" y="190" font-size="12.5" fill="#e7e1d5">英文一段</text>
+    <text x="992" y="212" font-size="12.5" fill="#a9a292">不带解释与参数</text>
+    <text x="992" y="246" font-size="11.5" fill="#f0c26a">直接粘进 ComfyUI</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g stroke="url(#line)" stroke-width="1.6" fill="none">
+    <path d="M232 190h26"/><path d="M468 190h26"/><path d="M704 190h26"/><path d="M940 190h26"/>
+  </g>
+  <g fill="#b9ac97">
+    <path d="M256 186l8 4-8 4z"/><path d="M492 186l8 4-8 4z"/>
+    <path d="M728 186l8 4-8 4z"/><path d="M964 186l8 4-8 4z"/>
+  </g>
+
+  <!-- 输入输出 -->
+  <g font-family="'PingFang SC','Microsoft YaHei',-apple-system,sans-serif">
+    <rect x="30" y="306" width="540" height="88" rx="12" fill="#f4f1ea" stroke="#e6e0d6"/>
+    <text x="52" y="336" font-size="11.5" letter-spacing="1.4" fill="#8a6d3b">输入</text>
+    <text x="52" y="364" font-size="13" fill="#4a463f">一句口语 / 一张参考图 / 一段待改的旧提示词</text>
+
+    <rect x="590" y="306" width="580" height="88" rx="12" fill="#f4f1ea" stroke="#e6e0d6"/>
+    <text x="612" y="336" font-size="11.5" letter-spacing="1.4" fill="#8a6d3b">输出</text>
+    <text x="612" y="364" font-size="13" fill="#4a463f">提示词正文（中 + 英）· 需要时可附参考图路径与 ComfyUI 接法</text>
+  </g>
+  <text x="1170" y="412" text-anchor="end"
+        font-family="'PingFang SC','Microsoft YaHei',-apple-system,sans-serif"
+        font-size="11" fill="#9b9488">公众号「爱折腾的摄影大叔」（lovephoto588）</text>
+</svg>

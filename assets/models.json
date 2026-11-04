@@ -1,0 +1,1832 @@
+{
+  "schema_version": 1,
+  "version": "2.1.0",
+  "updated": "2026-11-04",
+  "how_to_extend": "新增模型 = 往 models[] 追加一个对象 + 在 references/models.md 补一节说明。renderer 只能取 renderers 里的值；若现有 renderer 表达不了新语法，在 scripts/model_render.py 里加一个同名函数并在 renderers 中登记。每条记录必须带 budget（zh/en 各给 unit+min+max，enforce 取 max|both|none，source 取 official|note|heuristic）：budget 是字数上限的唯一出处，syntax 里不要再写 max_words，脚本一律经 model_registry.budget() 读取。禁止只改文档不改数据。",
+  "renderers": [
+    "tag",
+    "prose",
+    "json_layout",
+    "cn_structured"
+  ],
+  "intake_slots": [
+    {
+      "key": "subject.who",
+      "label": "主体是什么",
+      "required": true,
+      "ask": "画面里最主要的东西是什么？人 / 物 / 景，请说到能被认出来的程度。",
+      "why": "模型不会替你决定画什么；\"一个人\" 这种量级的信息会被补成最俗套的版本。",
+      "example": "一只汝窑天青釉花口盘"
+    },
+    {
+      "key": "subject.action",
+      "label": "在做什么 / 处于什么状态",
+      "required": true,
+      "ask": "它在做什么？或者处于什么状态？",
+      "why": "静态物件靠状态，人物靠动作；缺这一项画面会没有落点。",
+      "example": "置于案上，旁边斜插一枝单瓣白梅"
+    },
+    {
+      "key": "subject.setting",
+      "label": "环境与光向",
+      "required": true,
+      "ask": "周围是什么环境？光从哪来？",
+      "why": "没有空间与光向，主体会悬空，风格段也失去着力点。",
+      "example": "背景是留白的素墙，晨光自左侧斜入"
+    },
+    {
+      "key": "subject.detail",
+      "label": "一个可拍的细节（可选）",
+      "required": false,
+      "ask": "有没有一个能让画面\"是真的\"的细节？",
+      "why": "细节是区分\"棚拍样片\"和\"有生活痕迹\"的关键，但缺了也能出图。",
+      "example": "釉面开片细密可见"
+    },
+    {
+      "key": "style.specified",
+      "label": "指定风格（二选一）",
+      "required": false,
+      "ask": "有没有想指定的风格名？库里 173 条，说不上名字就说感受。",
+      "why": "指定风格可直达模板；与 style.feeling 至少给一个。",
+      "example": "宋式美学 / 赛博朋克 / 吉卜力工作室风格"
+    },
+    {
+      "key": "style.feeling",
+      "label": "或感受词（二选一）",
+      "required": false,
+      "ask": "说不上名字的话，想要什么感觉？给 2–3 个词。",
+      "why": "感受词用于反查候选，脚本会给出 2–3 条并说明差异。",
+      "example": "高级、安静、有点旧"
+    },
+    {
+      "key": "scene.type",
+      "label": "使用场景",
+      "required": true,
+      "ask": "这张图拿去干什么用？",
+      "why": "场景决定比例、是否需要图内文字、以及风格该收敛还是放开。",
+      "options": [
+        "电商主图",
+        "社交配图",
+        "海报/封面",
+        "品牌物料",
+        "绘本/插画",
+        "概念设计",
+        "人像写真",
+        "个人练习"
+      ],
+      "example": "电商主图"
+    },
+    {
+      "key": "scene.aspect",
+      "label": "画面比例",
+      "required": false,
+      "ask": "要什么比例？不确定就按场景给默认值。",
+      "why": "比例错了后面全要重做；脚本会按目标模型换算成它的合法分辨率。",
+      "example": "1:1 / 3:4 / 16:9"
+    },
+    {
+      "key": "scene.text_in_image",
+      "label": "画面内是否需要文字",
+      "required": false,
+      "ask": "画面里要不要出现文字？要的话把原文给我。",
+      "why": "只有部分模型能可靠渲染文字；这一项直接决定模型选型。",
+      "example": "「宋式点茶」四个字，竖排"
+    },
+    {
+      "key": "model",
+      "label": "目标模型",
+      "required": true,
+      "ask": "出图用哪个模型？请从下面 17 个里选一个。",
+      "why": "不同模型的语法、负向、步数与尺寸规则完全不同，选错模型等于白写。",
+      "options": [
+        "Z-Image-Turbo",
+        "Z-Image",
+        "FLUX.2-klein-base-4B",
+        "FLUX.2-klein-base-9B",
+        "FLUX.1-dev",
+        "FLUX.1-Kontext-dev",
+        "Krea-2-Turbo",
+        "Krea-2",
+        "Qwen-Image",
+        "Qwen-Image-2512",
+        "Qwen-Image-2.1",
+        "Qwen-Image-Edit",
+        "Qwen-Image-Edit-2509",
+        "Qwen-Image-Edit-2511",
+        "FireRed-Image-Edit-1.1",
+        "MOSS-Image",
+        "Fibo-2.0-dev"
+      ]
+    },
+    {
+      "key": "deliver.lang",
+      "label": "提示词语言",
+      "required": false,
+      "ask": "要中文还是英文提示词？",
+      "why": "英文优先模型（SDXL/FLUX/Krea 2）建议英文，中文原生模型（Qwen/MOSS/Z-Image）中文即可。",
+      "options": [
+        "跟随模型默认",
+        "中文",
+        "英文"
+      ]
+    },
+    {
+      "key": "edit.instruction",
+      "label": "编辑要求（选编辑模型时必填）",
+      "required": false,
+      "ask": "要改什么？例如「把招牌文字换成『欢迎光临』」。",
+      "why": "编辑类模型吃的是指令，不是画面描述；不给指令它会自己乱改。",
+      "example": "把背景换成日落海滩，人物保持不变"
+    },
+    {
+      "key": "edit.preserve",
+      "label": "要保留什么（选编辑模型时必填）",
+      "required": false,
+      "ask": "哪些部分必须保持原样？",
+      "why": "不写保留项，模型容易顺手改掉不该动的部位。",
+      "example": "人脸、姿势、衣服纹理"
+    },
+    {
+      "key": "style.candidates",
+      "label": "风格候选（三选一）",
+      "required": false,
+      "ask": "风格还没定？跑 `intake.py --styles \"你的感受词\"` 拿三个候选：一个稳妥、一个反差、一个意外。",
+      "why": "只给编号用户没法判断；每个候选要附一句画面描述，让他看得见再选。",
+      "example": "稳妥：宋式美学（安静克制）/ 反差：赛博朋克（同一器物放进霓虹）/ 意外：黏土风（把茶器做成手办感）"
+    },
+    {
+      "key": "subject.mood",
+      "label": "情绪基调",
+      "required": false,
+      "ask": "这张图想让人感觉到什么？一个词就够：温暖、冷峻、荒诞、怀旧、紧张…",
+      "why": "情绪决定光影与色彩走向，缺了它模型只能给中性表情。",
+      "example": "安静里带一点落寞"
+    },
+    {
+      "key": "subject.viewpoint",
+      "label": "视角或镜头",
+      "required": false,
+      "ask": "想用什么视角看它？俯拍、微距、第一人称、仰视、隔着玻璃…",
+      "why": "视角是廉价但有效的创意来源，换一个角度画面立刻不一样。",
+      "example": "贴着桌面平视，像一只蚂蚁看茶盘"
+    },
+    {
+      "key": "subject.twist",
+      "label": "一个意外元素",
+      "required": false,
+      "ask": "要不要加一笔打破常规的东西？比如比例错位、材质替换、时代错置。",
+      "why": "这一笔往往是「有创意」与「好看但普通」的分界线。",
+      "example": "茶盘里浮着一艘纸折的小船"
+    },
+    {
+      "key": "subject.metaphor",
+      "label": "想让人看懂什么",
+      "required": false,
+      "ask": "如果这张图是一句话，你想说的是什么？",
+      "why": "有了这句，主体与意外元素才有共同指向，不会拼成一堆好看但无关的东西。",
+      "example": "旧的秩序里，新的东西正在靠岸"
+    }
+  ],
+  "models": [
+    {
+      "id": "z-image-turbo",
+      "label": "Z-Image-Turbo",
+      "family": "z-image-turbo",
+      "open_source": true,
+      "aliases": [
+        "zimage-turbo",
+        "z-image turbo",
+        "zit",
+        "z-image-turbo"
+      ],
+      "renderer": "prose",
+      "language": "both",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "light",
+        "composition",
+        "color",
+        "texture",
+        "mood",
+        "style",
+        "quality"
+      ],
+      "negative": {
+        "mode": "weak",
+        "default": "灰暗, 低对比度, 肢体扭曲, 乱码",
+        "max_items": 5,
+        "note": "CFG 关闭，负向几乎不起作用；用正向描述替代。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 9,
+        "cfg": 0.0,
+        "note": "蒸馏版：9 步、guidance 0（ComfyUI 里 CFG 填 1.0）。2K 可用但更吃显存。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "896x1152",
+        "4:3": "1152x896",
+        "2:3": "832x1216",
+        "3:2": "1216x832",
+        "9:16": "768x1344",
+        "16:9": "1344x768"
+      },
+      "supports": {
+        "weight": false,
+        "negative": false,
+        "text_in_image": false,
+        "transparent": false,
+        "reference_images": 0
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "像写照片说明：主体 + 状态 + 环境 + 质感 + 镜头",
+        "中文友好，语序自然即可",
+        "需要干净画面就正向加「无文字」"
+      ],
+      "comfyui": {
+        "workflow": "Z-Image 官方 Turbo 模板：Load Diffusion Model + CLIPLoader → CLIPTextEncode → KSampler",
+        "size": "64 的倍数，1024×1024 起",
+        "negative": "Turbo 不吃负向，接 ConditioningZeroOut",
+        "notes": [
+          "KSampler 填 9 步、CFG 1.0",
+          "步数加多不会更好，只会更慢"
+        ]
+      },
+      "license": "以官方模型卡为准",
+      "sources": [
+        "https://www.gptimagehub.com/zh-CN/models/z-image-turbo",
+        "https://www.tryclout.ai/blog/z-image-turbo-prompt-guide"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 120,
+          "max": 300
+        },
+        "en": {
+          "unit": "word",
+          "min": 70,
+          "max": 120
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "z-image",
+      "label": "Z-Image",
+      "family": "z-image",
+      "open_source": true,
+      "aliases": [
+        "zimage",
+        "z-image-base",
+        "tongyi z-image"
+      ],
+      "renderer": "prose",
+      "language": "both",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "light",
+        "composition",
+        "color",
+        "texture",
+        "mood",
+        "style",
+        "quality"
+      ],
+      "negative": {
+        "mode": "separate",
+        "default": "灰暗, 低对比度, 肢体扭曲, 乱码, 背景混乱",
+        "max_items": 8,
+        "note": "有 CFG 时负向才有效。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 30,
+        "cfg": 4.0,
+        "note": "非蒸馏版走常规 CFG；步数与引导以所用模型卡为准（常见 25–40 步、CFG 3.5–5）。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "896x1152",
+        "4:3": "1152x896",
+        "2:3": "832x1216",
+        "3:2": "1216x832",
+        "9:16": "768x1344",
+        "16:9": "1344x768"
+      },
+      "supports": {
+        "weight": false,
+        "negative": true,
+        "text_in_image": false,
+        "transparent": false,
+        "reference_images": 0
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "与 Turbo 同一套语感，但可以写得更长更细",
+        "有 CFG，负向可以用了",
+        "同样中文友好"
+      ],
+      "comfyui": {
+        "workflow": "Z-Image 官方 Base 模板，参数按模型卡",
+        "size": "64 的倍数",
+        "negative": "常规负向输入可用",
+        "notes": [
+          "不要套 Turbo 的 9 步参数",
+          "Base 更适合配 LoRA 微调"
+        ]
+      },
+      "license": "以官方模型卡为准",
+      "sources": [
+        "https://www.gptimagehub.com/zh-CN/models/z-image-turbo"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 150,
+          "max": 400
+        },
+        "en": {
+          "unit": "word",
+          "min": 70,
+          "max": 140
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "flux2-klein-base-4b",
+      "label": "FLUX.2-klein-base-4B",
+      "family": "flux2-klein-base-4b",
+      "open_source": true,
+      "aliases": [
+        "flux2-klein-4b",
+        "flux.2-klein-4b",
+        "klein-4b"
+      ],
+      "renderer": "prose",
+      "language": "en",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "mood",
+        "style",
+        "quality"
+      ],
+      "negative": {
+        "mode": "separate",
+        "default": "text, letters, words, signage, watermarks, logos",
+        "max_items": 6,
+        "note": "base 子图有 CFG，负向可用；蒸馏版无效。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 20,
+        "cfg": 5.0,
+        "note": "base 非蒸馏：CFG 约 5，步数 20 上下；蒸馏版才是 4 步 / CFG 1。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "896x1152",
+        "4:3": "1152x896",
+        "2:3": "832x1216",
+        "3:2": "1216x832",
+        "9:16": "768x1344",
+        "16:9": "1344x768"
+      },
+      "supports": {
+        "weight": false,
+        "negative": true,
+        "text_in_image": true,
+        "transparent": false,
+        "reference_images": 10
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "文字编码器是 Qwen3-4B，不是 CLIP/T5 那套老习惯",
+        "提示词写成完整句子，50–150 词最佳，主体前置",
+        "图内文字能力强：要写字就用引号给原文，不需要文字时把 surface 描述成 unmarked / clean"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI 内置 FLUX.2 klein 4B 模板：Load Diffusion Model + CLIPLoader → CLIPTextEncode → KSampler",
+        "size": "64 的倍数：1024×1024 / 1152×896 / 896×1152 / 1536×1024",
+        "negative": "base 接负向可用；蒸馏版接空条件",
+        "notes": [
+          "4B 建议 12 GB 显存，紧张用 fp8",
+          "CFG 1 是蒸馏版参数，base 别照抄",
+          "FLUX.1 与 FLUX.2 的权重/编码器/VAE 不通用"
+        ]
+      },
+      "license": "Apache-2.0",
+      "sources": [
+        "https://modeltrends.ai/ai-model-guides/flux-2-klein-4b-text-to-image-comfyui-workflow",
+        "https://www.earngenix.com/comfyui-workflows/install-flux-comfyui-install-schnell"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 150,
+          "max": 500
+        },
+        "en": {
+          "unit": "word",
+          "min": 50,
+          "max": 150
+        },
+        "enforce": "both",
+        "source": "official"
+      }
+    },
+    {
+      "id": "flux2-klein-base-9b",
+      "label": "FLUX.2-klein-base-9B",
+      "family": "flux2-klein-base-9b",
+      "open_source": true,
+      "aliases": [
+        "flux2-klein-9b",
+        "flux.2-klein-9b",
+        "klein-9b"
+      ],
+      "renderer": "prose",
+      "language": "en",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "mood",
+        "style",
+        "quality"
+      ],
+      "negative": {
+        "mode": "separate",
+        "default": "text, letters, words, signage, watermarks, logos",
+        "max_items": 6,
+        "note": "base 子图有 CFG，负向可用；蒸馏版无效。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 24,
+        "cfg": 5.0,
+        "note": "base 非蒸馏：CFG 约 5，步数 24 上下；蒸馏版才是 4 步 / CFG 1。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "896x1152",
+        "4:3": "1152x896",
+        "2:3": "832x1216",
+        "3:2": "1216x832",
+        "9:16": "768x1344",
+        "16:9": "1344x768"
+      },
+      "supports": {
+        "weight": false,
+        "negative": true,
+        "text_in_image": true,
+        "transparent": false,
+        "reference_images": 10
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "文字编码器是 Qwen3-8B，不是 CLIP/T5 那套老习惯",
+        "提示词写成完整句子，50–150 词最佳，主体前置",
+        "图内文字能力强：要写字就用引号给原文，不需要文字时把 surface 描述成 unmarked / clean"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI 内置 FLUX.2 klein 9B 模板：Load Diffusion Model + CLIPLoader → CLIPTextEncode → KSampler",
+        "size": "64 的倍数：1024×1024 / 1152×896 / 896×1152 / 1536×1024",
+        "negative": "base 接负向可用；蒸馏版接空条件",
+        "notes": [
+          "9B 建议 16 GB 显存，紧张用 fp8",
+          "CFG 1 是蒸馏版参数，base 别照抄",
+          "FLUX.1 与 FLUX.2 的权重/编码器/VAE 不通用"
+        ]
+      },
+      "license": "Apache-2.0",
+      "sources": [
+        "https://modeltrends.ai/ai-model-guides/flux-2-klein-4b-text-to-image-comfyui-workflow",
+        "https://www.earngenix.com/comfyui-workflows/install-flux-comfyui-install-schnell"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 150,
+          "max": 500
+        },
+        "en": {
+          "unit": "word",
+          "min": 50,
+          "max": 150
+        },
+        "enforce": "both",
+        "source": "official"
+      }
+    },
+    {
+      "id": "flux-1-dev",
+      "label": "FLUX.1-dev",
+      "family": "flux-1-dev",
+      "open_source": true,
+      "aliases": [
+        "flux",
+        "flux-dev",
+        "flux1-dev",
+        "flux.1"
+      ],
+      "renderer": "prose",
+      "language": "en",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "mood",
+        "style",
+        "quality"
+      ],
+      "negative": {
+        "mode": "ignored",
+        "default": "",
+        "note": "负向基本无效，改成正向陈述。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 28,
+        "cfg": 3.5,
+        "note": "guidance 3.5 走 FluxGuidance 节点；cfg 保持 1。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "896x1152",
+        "4:3": "1152x896",
+        "2:3": "832x1216",
+        "3:2": "1216x832",
+        "9:16": "768x1344",
+        "16:9": "1344x768"
+      },
+      "supports": {
+        "weight": false,
+        "negative": false,
+        "text_in_image": true,
+        "transparent": false,
+        "reference_images": 0
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "自然语言，不加权重、不堆质量词",
+        "T5 编码器吃长句，主体先出现",
+        "图内文字用引号"
+      ],
+      "comfyui": {
+        "workflow": "UNETLoader + DualCLIPLoader(clip_l/t5xxl) → CLIPTextEncode → FluxGuidance → KSampler",
+        "size": "64 的倍数，1024×1024 / 832×1216",
+        "negative": "接 ConditioningZeroOut",
+        "notes": [
+          "引导强度在 FluxGuidance，不在 KSampler 的 cfg",
+          "schnell 是 4 步、guidance 0，别混"
+        ]
+      },
+      "license": "FLUX.1 [dev] Non-Commercial License",
+      "sources": [
+        "https://agentframer.com/blog/flux-vs-sdxl-comparison"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 200,
+          "max": 800
+        },
+        "en": {
+          "unit": "word",
+          "min": 80,
+          "max": 200
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "flux-1-kontext-dev",
+      "label": "FLUX.1-Kontext-dev",
+      "family": "flux-1-kontext-dev",
+      "open_source": true,
+      "aliases": [
+        "kontext",
+        "flux-kontext",
+        "kontext-dev"
+      ],
+      "renderer": "cn_structured",
+      "language": "en",
+      "task": "edit",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "mood",
+        "style",
+        "quality"
+      ],
+      "negative": {
+        "mode": "ignored",
+        "default": "",
+        "note": "负向无效。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 28,
+        "cfg": 2.5,
+        "note": "编辑模型：guidance 2.5 上下，按官方模板。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "896x1152",
+        "4:3": "1152x896",
+        "2:3": "832x1216",
+        "3:2": "1216x832",
+        "9:16": "768x1344",
+        "16:9": "1344x768"
+      },
+      "supports": {
+        "weight": false,
+        "negative": false,
+        "text_in_image": true,
+        "transparent": false,
+        "reference_images": 1
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "这是**编辑模型**：提示词是「改什么 + 保留什么」的指令，不是画面描述",
+        "一句话说清动作，别写风格堆词",
+        "要换文字就直接给原文"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI 内置 Kontext 模板：Load Image → VAE Encode → ReferenceLatent → KSampler",
+        "size": "跟随输入图，或 64 的倍数",
+        "negative": "接空条件",
+        "notes": [
+          "没有输入图就跑不出结果",
+          "编辑强度靠 denoise 与指令措辞，不靠负向"
+        ]
+      },
+      "license": "FLUX.1 [dev] Non-Commercial License",
+      "sources": [
+        "https://modeltrends.ai/ai-model-guides/flux-2-klein-4b-text-to-image-comfyui-workflow"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 30,
+          "max": 120
+        },
+        "en": {
+          "unit": "word",
+          "min": 20,
+          "max": 60
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "krea-2-turbo",
+      "label": "Krea-2-Turbo",
+      "family": "krea-2-turbo",
+      "open_source": true,
+      "aliases": [
+        "krea2-turbo",
+        "krea-2 turbo",
+        "krea turbo"
+      ],
+      "renderer": "prose",
+      "language": "en",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "composition",
+        "light",
+        "mood",
+        "style",
+        "color",
+        "texture",
+        "quality"
+      ],
+      "negative": {
+        "mode": "none",
+        "default": "",
+        "note": "CFG 关闭，负向无效；官方工作流直接把负向条件清零。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 8,
+        "cfg": 1.0,
+        "note": "8 步蒸馏：guidance 0，ComfyUI 的 KSampler 填 CFG 1.0，不要填 0。mu 固定 1.15。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "896x1152",
+        "4:3": "1152x896",
+        "2:3": "832x1216",
+        "3:2": "1216x832",
+        "9:16": "768x1344",
+        "16:9": "1344x768"
+      },
+      "supports": {
+        "weight": false,
+        "negative": false,
+        "text_in_image": true,
+        "transparent": false,
+        "reference_images": 2
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "自然语言 + 摄影词汇：焦段、时段、胶片、光向",
+        "质量词（masterpiece/8k）在这里是废字",
+        "材质与具体色名比抽象形容有用",
+        "要写字就用引号"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI Krea-2 模板：Load Diffusion Model + CLIPLoader(qwen3vl_4b) → KSampler",
+        "size": "1K–2K，16 的倍数（2048×2048 / 1536×2048）",
+        "negative": "接 ConditioningZeroOut",
+        "notes": [
+          "CFG 填 0 会崩，填 1.0",
+          "步数加多不会更好",
+          "LoRA 在 RAW 上训、Turbo 上用"
+        ]
+      },
+      "license": "Krea 2 Community License",
+      "sources": [
+        "https://github.com/FiditeNemini/krea-2/blob/main/README.md",
+        "https://imgtoimg-ai.com/blog/krea2-turbo"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 150,
+          "max": 400
+        },
+        "en": {
+          "unit": "word",
+          "min": 70,
+          "max": 140
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "krea-2",
+      "label": "Krea-2",
+      "family": "krea-2",
+      "open_source": true,
+      "aliases": [
+        "krea2",
+        "krea-2-raw",
+        "krea raw"
+      ],
+      "renderer": "prose",
+      "language": "en",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "composition",
+        "light",
+        "mood",
+        "style",
+        "color",
+        "texture",
+        "quality"
+      ],
+      "negative": {
+        "mode": "separate",
+        "default": "blurry, low quality, watermark, text",
+        "max_items": 6,
+        "note": "有 CFG，负向可用，但别堆长列表。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 52,
+        "cfg": 3.5,
+        "note": "非蒸馏 RAW：52 步、CFG 3.5，原生约 1K。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "896x1152",
+        "4:3": "1152x896",
+        "2:3": "832x1216",
+        "3:2": "1216x832",
+        "9:16": "768x1344",
+        "16:9": "1344x768"
+      },
+      "supports": {
+        "weight": false,
+        "negative": true,
+        "text_in_image": true,
+        "transparent": false,
+        "reference_images": 2
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "与 Turbo 同一套语感，但更吃细节与变化",
+        "调参空间比 Turbo 大",
+        "训练 LoRA 用这一版"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI Krea-2 RAW 模板",
+        "size": "1K 左右，16 的倍数",
+        "negative": "常规负向可用",
+        "notes": [
+          "52 步是官方推荐，不要套 Turbo 的 8 步",
+          "出图慢，适合定稿不适合试稿"
+        ]
+      },
+      "license": "Krea 2 Community License",
+      "sources": [
+        "https://github.com/FiditeNemini/krea-2/blob/main/README.md"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 200,
+          "max": 800
+        },
+        "en": {
+          "unit": "word",
+          "min": 80,
+          "max": 200
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "qwen-image",
+      "label": "Qwen-Image",
+      "family": "qwen-image",
+      "open_source": true,
+      "aliases": [
+        "qwen",
+        "qwen-image-base"
+      ],
+      "renderer": "cn_structured",
+      "language": "both",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "style",
+        "mood",
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "quality"
+      ],
+      "negative": {
+        "mode": "none",
+        "default": "",
+        "note": "走正向描述；开源权重不吃 negative_prompt。"
+      },
+      "params": {
+        "native": 1328,
+        "steps": 20,
+        "cfg": 2.5,
+        "note": "ComfyUI 官方模板常见 20 步 / CFG 2.5；长文本或复杂排版加到 40–50 步。"
+      },
+      "aspects": {
+        "1:1": "1328x1328",
+        "3:4": "1104x1472",
+        "4:3": "1472x1104",
+        "2:3": "928x1472",
+        "3:2": "1472x928",
+        "9:16": "928x1664",
+        "16:9": "1664x928"
+      },
+      "supports": {
+        "weight": false,
+        "negative": false,
+        "text_in_image": true,
+        "transparent": true,
+        "reference_images": 0
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "中文结构化长句最稳：主体 → 场景 → 风格 → 镜头 → 氛围 → 细节",
+        "文字渲染是强项，标题/段落给原文与层级",
+        "尺寸为 16 的倍数"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI Qwen-Image 模板：CLIPLoader(qwen) → CLIPTextEncode → KSampler",
+        "size": "16 的倍数，1328×1328 / 1664×928",
+        "negative": "接 ConditioningZeroOut",
+        "notes": [
+          "不要塞负向词，无效",
+          "透明底用支持 RGBA 的模板",
+          "提示词别超 800 字太多"
+        ]
+      },
+      "license": "Qwen License（以模型卡为准）",
+      "sources": [
+        "https://www.alibabacloud.com/help/zh/model-studio/qwen-image-api"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 200,
+          "max": 800
+        },
+        "en": {
+          "unit": "word",
+          "min": 80,
+          "max": 200
+        },
+        "enforce": "max",
+        "source": "note"
+      }
+    },
+    {
+      "id": "qwen-image-2512",
+      "label": "Qwen-Image-2512",
+      "family": "qwen-image-2512",
+      "open_source": true,
+      "aliases": [
+        "qwen-2512",
+        "qwen-image-25-12"
+      ],
+      "renderer": "cn_structured",
+      "language": "both",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "style",
+        "mood",
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "quality"
+      ],
+      "negative": {
+        "mode": "none",
+        "default": "",
+        "note": "走正向描述。"
+      },
+      "params": {
+        "native": 1328,
+        "steps": 20,
+        "cfg": 2.5,
+        "note": "2512 为 Qwen-Image 的 2025-12 更新版，参数沿用官方模板。"
+      },
+      "aspects": {
+        "1:1": "1328x1328",
+        "3:4": "1104x1472",
+        "4:3": "1472x1104",
+        "2:3": "928x1472",
+        "3:2": "1472x928",
+        "9:16": "928x1664",
+        "16:9": "1664x928"
+      },
+      "supports": {
+        "weight": false,
+        "negative": false,
+        "text_in_image": true,
+        "transparent": true,
+        "reference_images": 0
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "与 Qwen-Image 同源，中文长句 + 强文字渲染",
+        "细节与排版比初版稳，仍建议给明确层级",
+        "尺寸 16 的倍数"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI Qwen-Image-2512 模板（与 Qwen-Image 同构）",
+        "size": "16 的倍数",
+        "negative": "接空条件",
+        "notes": [
+          "权重换 2512 即可，工作流不变",
+          "不要混用初版与 2512 的文本编码器"
+        ]
+      },
+      "license": "Qwen License（以模型卡为准）",
+      "sources": [
+        "https://www.alibabacloud.com/help/zh/model-studio/qwen-image-generation-and-editing-api-reference"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 200,
+          "max": 800
+        },
+        "en": {
+          "unit": "word",
+          "min": 80,
+          "max": 200
+        },
+        "enforce": "max",
+        "source": "note"
+      }
+    },
+    {
+      "id": "qwen-image-2.1",
+      "label": "Qwen-Image-2.1",
+      "family": "qwen-image-2.1",
+      "open_source": true,
+      "aliases": [
+        "qwen-2.1",
+        "qwen-image-21",
+        "qwen-image2.1"
+      ],
+      "renderer": "cn_structured",
+      "language": "both",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "style",
+        "mood",
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "quality"
+      ],
+      "negative": {
+        "mode": "none",
+        "default": "",
+        "note": "开源权重不吃 negative_prompt。"
+      },
+      "params": {
+        "native": 1328,
+        "steps": 30,
+        "cfg": 4.0,
+        "note": "统一模型：文生图 + 编辑；步数/CFG 以 ComfyUI 模板默认为准。"
+      },
+      "aspects": {
+        "1:1": "1328x1328",
+        "3:4": "1104x1472",
+        "4:3": "1472x1104",
+        "2:3": "928x1472",
+        "3:2": "1472x928",
+        "9:16": "928x1664",
+        "16:9": "1664x928"
+      },
+      "supports": {
+        "weight": false,
+        "negative": false,
+        "text_in_image": true,
+        "transparent": true,
+        "reference_images": 10
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "7B 统一模型，原生 RGBA 透明背景",
+        "文字排版强，长标题给原文与层级",
+        "最多 10 张参考图（编辑场景）",
+        "版本号不等于发布顺序：3.0 早于 2.1"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI 官方 Qwen-Image 2.1 生成/编辑模板",
+        "size": "16 的倍数，1328×1328 / 1664×928",
+        "negative": "接 ConditioningZeroOut",
+        "notes": [
+          "BF16 与 INT8 两版，显存紧用 INT8",
+          "透明底要接 RGBA 输出节点",
+          "编辑走编辑模板"
+        ]
+      },
+      "license": "Qwen Research License（商用需授权）",
+      "sources": [
+        "https://qwen.ai/blog?id=qwen-image-2.1"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 200,
+          "max": 800
+        },
+        "en": {
+          "unit": "word",
+          "min": 80,
+          "max": 200
+        },
+        "enforce": "max",
+        "source": "note"
+      }
+    },
+    {
+      "id": "qwen-image-edit",
+      "label": "Qwen-Image-Edit",
+      "family": "qwen-image-edit",
+      "open_source": true,
+      "aliases": [
+        "qwen-edit",
+        "qwen-image-edit-2508"
+      ],
+      "renderer": "cn_structured",
+      "language": "both",
+      "task": "edit",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "style",
+        "mood",
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "quality"
+      ],
+      "negative": {
+        "mode": "none",
+        "default": "",
+        "note": "走正向指令，不要负向。"
+      },
+      "params": {
+        "native": 1328,
+        "steps": 20,
+        "cfg": 2.5,
+        "note": "编辑模型：步数与 CFG 按 ComfyUI 模板默认。"
+      },
+      "aspects": {
+        "1:1": "1328x1328",
+        "3:4": "1104x1472",
+        "4:3": "1472x1104",
+        "2:3": "928x1472",
+        "3:2": "1472x928",
+        "9:16": "928x1664",
+        "16:9": "1664x928"
+      },
+      "supports": {
+        "weight": false,
+        "negative": false,
+        "text_in_image": true,
+        "transparent": true,
+        "reference_images": 1
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "这是**编辑模型**：提示词 = 改什么 + 保留什么，不是从零描述画面",
+        "初代编辑模型，指令式改图。",
+        "引用多张输入图时用「图1/图2」指代",
+        "换文字要给原文与字体风格"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI Qwen-Image-Edit 模板：Load Image → VAE Encode → Text Encode → KSampler",
+        "size": "跟随输入图或 16 的倍数",
+        "negative": "接空条件",
+        "notes": [
+          "必须给输入图",
+          "多图输入时明确每张图的角色"
+        ]
+      },
+      "license": "Qwen License（以模型卡为准）",
+      "sources": [
+        "https://help.aliyun.com/zh/model-studio/qwen-image-generation-and-editing-api-reference"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 30,
+          "max": 150
+        },
+        "en": {
+          "unit": "word",
+          "min": 20,
+          "max": 80
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "qwen-image-edit-2509",
+      "label": "Qwen-Image-Edit-2509",
+      "family": "qwen-image-edit-2509",
+      "open_source": true,
+      "aliases": [
+        "qwen-edit-2509"
+      ],
+      "renderer": "cn_structured",
+      "language": "both",
+      "task": "edit",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "style",
+        "mood",
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "quality"
+      ],
+      "negative": {
+        "mode": "none",
+        "default": "",
+        "note": "走正向指令，不要负向。"
+      },
+      "params": {
+        "native": 1328,
+        "steps": 20,
+        "cfg": 2.5,
+        "note": "编辑模型：步数与 CFG 按 ComfyUI 模板默认。"
+      },
+      "aspects": {
+        "1:1": "1328x1328",
+        "3:4": "1104x1472",
+        "4:3": "1472x1104",
+        "2:3": "928x1472",
+        "3:2": "1472x928",
+        "9:16": "928x1664",
+        "16:9": "1664x928"
+      },
+      "supports": {
+        "weight": false,
+        "negative": false,
+        "text_in_image": true,
+        "transparent": true,
+        "reference_images": 3
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "这是**编辑模型**：提示词 = 改什么 + 保留什么，不是从零描述画面",
+        "2509 支持多图输入（最多 3 张），适合换装/合成/参考编辑。",
+        "引用多张输入图时用「图1/图2」指代",
+        "换文字要给原文与字体风格"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI Qwen-Image-Edit 模板：Load Image → VAE Encode → Text Encode → KSampler",
+        "size": "跟随输入图或 16 的倍数",
+        "negative": "接空条件",
+        "notes": [
+          "必须给输入图",
+          "多图输入时明确每张图的角色"
+        ]
+      },
+      "license": "Qwen License（以模型卡为准）",
+      "sources": [
+        "https://help.aliyun.com/zh/model-studio/qwen-image-generation-and-editing-api-reference"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 30,
+          "max": 150
+        },
+        "en": {
+          "unit": "word",
+          "min": 20,
+          "max": 80
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "qwen-image-edit-2511",
+      "label": "Qwen-Image-Edit-2511",
+      "family": "qwen-image-edit-2511",
+      "open_source": true,
+      "aliases": [
+        "qwen-edit-2511"
+      ],
+      "renderer": "cn_structured",
+      "language": "both",
+      "task": "edit",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "style",
+        "mood",
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "quality"
+      ],
+      "negative": {
+        "mode": "none",
+        "default": "",
+        "note": "走正向指令，不要负向。"
+      },
+      "params": {
+        "native": 1328,
+        "steps": 20,
+        "cfg": 2.5,
+        "note": "编辑模型：步数与 CFG 按 ComfyUI 模板默认。"
+      },
+      "aspects": {
+        "1:1": "1328x1328",
+        "3:4": "1104x1472",
+        "4:3": "1472x1104",
+        "2:3": "928x1472",
+        "3:2": "1472x928",
+        "9:16": "928x1664",
+        "16:9": "1664x928"
+      },
+      "supports": {
+        "weight": false,
+        "negative": false,
+        "text_in_image": true,
+        "transparent": true,
+        "reference_images": 3
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "这是**编辑模型**：提示词 = 改什么 + 保留什么，不是从零描述画面",
+        "2511 为 2509 的后续更新，一致性与文字编辑更稳。",
+        "引用多张输入图时用「图1/图2」指代",
+        "换文字要给原文与字体风格"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI Qwen-Image-Edit 模板：Load Image → VAE Encode → Text Encode → KSampler",
+        "size": "跟随输入图或 16 的倍数",
+        "negative": "接空条件",
+        "notes": [
+          "必须给输入图",
+          "多图输入时明确每张图的角色"
+        ]
+      },
+      "license": "Qwen License（以模型卡为准）",
+      "sources": [
+        "https://help.aliyun.com/zh/model-studio/qwen-image-generation-and-editing-api-reference"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 30,
+          "max": 150
+        },
+        "en": {
+          "unit": "word",
+          "min": 20,
+          "max": 80
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "firered-image-edit-1.1",
+      "label": "FireRed-Image-Edit-1.1",
+      "family": "firered-image-edit-1.1",
+      "open_source": true,
+      "aliases": [
+        "firered",
+        "firered-edit",
+        "firered-1.1"
+      ],
+      "renderer": "cn_structured",
+      "language": "both",
+      "task": "edit",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "style",
+        "mood",
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "quality"
+      ],
+      "negative": {
+        "mode": "separate",
+        "default": "模糊, 畸变, 水印, 文字乱码",
+        "max_items": 6,
+        "note": "支持负向，但精准排除即可。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 30,
+        "cfg": 4.0,
+        "note": "官方默认 30 步 / guidance 4；加速档可选。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "896x1152",
+        "4:3": "1152x896",
+        "2:3": "832x1216",
+        "3:2": "1216x832",
+        "9:16": "768x1344",
+        "16:9": "1344x768"
+      },
+      "supports": {
+        "weight": false,
+        "negative": true,
+        "text_in_image": true,
+        "transparent": false,
+        "reference_images": 3
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "小红书 FireRed 团队的**编辑模型**，指令式改图",
+        "中英双语文字渲染都强，「把 X 改成 Y」直接说",
+        "最多 3 张参考图，用「图1/图2」指代",
+        "改文字、风格迁移、老照片修复是强项"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI FireRed-Image-Edit 模板：Load Image(1–3) → Text Encode → KSampler",
+        "size": "跟随输入图，或 16 的倍数",
+        "negative": "可用，精准 4–6 项",
+        "notes": [
+          "必须给输入图",
+          "人脸保持强度过高会限制风格迁移"
+        ]
+      },
+      "license": "Apache-2.0",
+      "sources": [
+        "https://fireredimage.com/zh/firered-image-edit"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 30,
+          "max": 150
+        },
+        "en": {
+          "unit": "word",
+          "min": 20,
+          "max": 80
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "moss-image",
+      "label": "MOSS-Image",
+      "family": "moss-image",
+      "open_source": true,
+      "aliases": [
+        "moss",
+        "mos",
+        "moss-image-sft",
+        "openmoss"
+      ],
+      "renderer": "json_layout",
+      "language": "both",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "style",
+        "color",
+        "composition",
+        "texture",
+        "light",
+        "quality",
+        "mood"
+      ],
+      "negative": {
+        "mode": "separate",
+        "default": "nsfw, worst quality, bad anatomy, watermark, jpeg artifact",
+        "max_items": 8,
+        "note": "精准排除，不要大列表。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 50,
+        "cfg": 3.0,
+        "note": "Euler 50 步 / CFG 3 / shift 5；尺寸须为 16 的倍数。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "896x1152",
+        "4:3": "1152x896",
+        "2:3": "832x1216",
+        "3:2": "1216x832",
+        "9:16": "768x1344",
+        "16:9": "1344x768"
+      },
+      "supports": {
+        "weight": false,
+        "negative": true,
+        "text_in_image": true,
+        "transparent": false,
+        "reference_images": 0
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "原生中英双语，短句优于长句（内置 enhancer）",
+        "JSON 布局可精确控制元素位置与图内文字",
+        "做 2D 动漫与排版用 SFT 权重"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI 0.42+ 内置四套模板：Base/SFT × 有/无 BBox",
+        "size": "16 的倍数，512–1024",
+        "negative": "模板自带负向输入",
+        "notes": [
+          "做排版选带 BBox 的模板",
+          "短提示词常好过长提示词"
+        ]
+      },
+      "license": "Apache-2.0",
+      "sources": [
+        "https://modeltrends.ai/ai-model-guides/moss-image-guide",
+        "https://www.aimodeling.com/news/slug/moss-image-bilingual-text-rendering-base"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 30,
+          "max": 120
+        },
+        "en": {
+          "unit": "word",
+          "min": 20,
+          "max": 60
+        },
+        "enforce": "none",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "fibo-2.0-dev",
+      "label": "Fibo-2.0-dev",
+      "family": "fibo-2.0-dev",
+      "open_source": true,
+      "aliases": [
+        "fibo",
+        "fibo-2.0",
+        "bria-fibo"
+      ],
+      "renderer": "prose",
+      "language": "both",
+      "task": "both",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "composition",
+        "light",
+        "color",
+        "texture",
+        "mood",
+        "style",
+        "quality"
+      ],
+      "negative": {
+        "mode": "separate",
+        "default": "low quality, blurry, watermark",
+        "max_items": 6,
+        "note": "有 CFG，负向可用。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 30,
+        "cfg": 5.0,
+        "note": "8B flow-matching，dev 为非蒸馏底座，走 CFG；步数/CFG 以模型卡为准。"
+      },
+      "aspects": {
+        "1:1": "1024x1024",
+        "3:4": "800x1424",
+        "4:3": "1424x800",
+        "2:3": "832x1248",
+        "3:2": "1248x832",
+        "16:9": "1424x800"
+      },
+      "supports": {
+        "weight": false,
+        "negative": true,
+        "text_in_image": true,
+        "transparent": false,
+        "reference_images": 4
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "Bria 的统一模型：文生图 + 编辑同一套权重",
+        "背后是 VGL 结构化描述：短句会被展开成结构化 caption，所以写短、写具体",
+        "拆开写光/构图/材质/相机，比堆形容词稳",
+        "生成与编辑都能用，最多 4 张参考图"
+      ],
+      "comfyui": {
+        "workflow": "ComfyUI 走 Fibo 2.0 模板或 Diffusers 分支（需 bria-vgl 工具链）",
+        "size": "16 的倍数，约 1MP：1024×1024 / 1424×800 / 1248×832",
+        "negative": "可用",
+        "notes": [
+          "VGL 会把短提示扩展成 JSON，别自己手写超长 JSON",
+          "身份与布局稳定性是它的卖点"
+        ]
+      },
+      "license": "CC BY-NC 4.0（仅非商用，商用需与 Bria 签约）",
+      "sources": [
+        "http://quidproquo.cc/posts/daily/2026-10-24-model-bria-fibo-2-0-dev",
+        "https://www.aimodeling.com/news/slug/bria-fibo-2-0-unified-editing-generation"
+      ],
+      "confidence": "medium",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 100,
+          "max": 300
+        },
+        "en": {
+          "unit": "word",
+          "min": 50,
+          "max": 100
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    },
+    {
+      "id": "generic",
+      "label": "通用（不绑模型）",
+      "family": "generic",
+      "open_source": false,
+      "offer": false,
+      "aliases": [
+        "any",
+        "unknown"
+      ],
+      "renderer": "cn_structured",
+      "language": "both",
+      "task": "t2i",
+      "syntax": {
+        "joiner": "，",
+        "weight": "none",
+        "chunk_tokens": 512
+      },
+      "segment_order": [
+        "color",
+        "composition",
+        "texture",
+        "light",
+        "quality",
+        "style",
+        "mood"
+      ],
+      "negative": {
+        "mode": "separate",
+        "default": "低清, 模糊, 畸变, 多余手指, 过曝, 欠曝, 塑料感, 文字乱码, 水印",
+        "max_items": 10,
+        "note": "通用负向，投喂前按目标模型裁剪。"
+      },
+      "params": {
+        "native": 1024,
+        "steps": 0,
+        "cfg": 0.0,
+        "note": "未指定模型时不写死参数。"
+      },
+      "aspects": {},
+      "supports": {
+        "weight": false,
+        "negative": true,
+        "text_in_image": false,
+        "transparent": false,
+        "reference_images": 0
+      },
+      "style_hint": "",
+      "avoid": [],
+      "notes": [
+        "用户没定模型时先用它出结构，再让用户从清单里选。"
+      ],
+      "comfyui": {},
+      "license": "—",
+      "sources": [],
+      "confidence": "high",
+      "verified": "2026-11-04",
+      "budget": {
+        "zh": {
+          "unit": "char",
+          "min": 200,
+          "max": 800
+        },
+        "en": {
+          "unit": "word",
+          "min": 80,
+          "max": 200
+        },
+        "enforce": "max",
+        "source": "heuristic"
+      }
+    }
+  ]
+}

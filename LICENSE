@@ -1,0 +1,70 @@
+MIT License
+
+Copyright (c) 2026 爱折腾的摄影大叔 (lovephoto588)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+# 内容许可：CC BY 4.0
+
+除代码外，本仓库的风格文本、提示词模板、排版图型、配色数据与文档，
+按 **Creative Commons Attribution 4.0 International（CC BY 4.0）** 授权。
+
+全文：https://creativecommons.org/licenses/by/4.0/legalcode.zh-hans
+
+你可以自由地共享与改编，包括商业用途，只需满足一个条件：
+
+> **署名**：注明来源为「公众号「爱折腾的摄影大叔」（lovephoto588）」，
+> 并附上本仓库链接；如有修改，请说明改了什么。
+
+## 授权范围
+
+| 内容 | 路径 | 许可 | 商用 |
+|---|---|---|---|
+| 代码 | `scripts/` | MIT | 允许 |
+| 风格文本与提示词模板 | `references/`、`assets/styles-173.json` | CC BY 4.0 | 允许，需署名 |
+| 排版图型与配色 | `assets/layouts.json`、`assets/colors.json`、对应 references | CC BY 4.0 | 允许，需署名 |
+| 模型档案 | `assets/models.json` | CC BY 4.0 | 允许，需署名 |
+| 文档与配图 | `README.md`、`docs/` | CC BY 4.0 | 允许，需署名 |
+| 参考图片 | `assets/dataset/` | **不授权** | 仅随包作风格示意，请勿单独复用或再分发 |
+
+## 署名怎么写
+
+放在产品说明、README、页脚或关于页均可，形式不限，但需包含公众号名与账号：
+
+```
+提示词风格库 by 爱折腾的摄影大叔（lovephoto588）
+https://github.com/<your-repo>
+```
+
+## 不需要额外许可的事
+
+- 用它给自己的店铺、客户、公司做图；
+- 集成进你卖的软件或服务；
+- 二次开发后闭源分发；
+- 用于课程、社群、付费内容。
+
+以上都允许，只要保留署名。若不方便公开署名（例如内部系统），
+在文档或关于页标注一行即可。
+
+---
+
+第三方模型与素材的许可不在本文件范围内：模型权重按其各自的许可
+（如 Qwen Research License、FLUX.1 [dev] 非商用）执行，与本项目无关。

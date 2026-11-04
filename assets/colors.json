@@ -1,0 +1,367 @@
+{
+ "version": 1,
+ "count": 36,
+ "note": "单色主题色，用于覆盖风格色彩段或做点缀。hex 仅供设计参考，提示词里写色名不写十六进制。",
+ "colors": [
+  {
+   "id": "C-01",
+   "name_zh": "黛青",
+   "name_en": "Dai Blue",
+   "hex": "#3B4A54",
+   "family": "传统",
+   "value": "深",
+   "use": "国风、器物、严肃科普",
+   "pairs": "月白/燕麦"
+  },
+  {
+   "id": "C-02",
+   "name_zh": "松花",
+   "name_en": "Pine Pollen",
+   "hex": "#BCCE8C",
+   "family": "传统",
+   "value": "中",
+   "use": "春季节气、茶饮、草本",
+   "pairs": "墨黑/奶白"
+  },
+  {
+   "id": "C-03",
+   "name_zh": "胭脂",
+   "name_en": "Rouge",
+   "hex": "#A63A52",
+   "family": "传统",
+   "value": "中深",
+   "use": "女性向、婚嫁、节庆",
+   "pairs": "奶白/藕荷"
+  },
+  {
+   "id": "C-04",
+   "name_zh": "藤黄",
+   "name_en": "Gamboge",
+   "hex": "#E8B23A",
+   "family": "传统",
+   "value": "中",
+   "use": "佛寺、敦煌、暖调促销",
+   "pairs": "赭石/墨黑"
+  },
+  {
+   "id": "C-05",
+   "name_zh": "石青",
+   "name_en": "Azurite",
+   "hex": "#2E6E8E",
+   "family": "传统",
+   "value": "中深",
+   "use": "青绿山水、文博、男性向",
+   "pairs": "奶白/藤黄"
+  },
+  {
+   "id": "C-06",
+   "name_zh": "朱砂",
+   "name_en": "Cinnabar",
+   "hex": "#B23A2E",
+   "family": "传统",
+   "value": "中",
+   "use": "年节、印章、强提示",
+   "pairs": "墨黑/奶白"
+  },
+  {
+   "id": "C-07",
+   "name_zh": "月白",
+   "name_en": "Moon White",
+   "hex": "#E8EDF0",
+   "family": "传统",
+   "value": "浅",
+   "use": "留白底、瓷器、极简",
+   "pairs": "黛青/墨黑"
+  },
+  {
+   "id": "C-08",
+   "name_zh": "赭石",
+   "name_en": "Ochre",
+   "hex": "#8C5A3B",
+   "family": "传统",
+   "value": "中深",
+   "use": "泥土、古建、手作",
+   "pairs": "奶白/竹青"
+  },
+  {
+   "id": "C-09",
+   "name_zh": "靛蓝",
+   "name_en": "Indigo",
+   "hex": "#274B6D",
+   "family": "传统",
+   "value": "深",
+   "use": "夜、海、科技国风",
+   "pairs": "奶白/藤黄"
+  },
+  {
+   "id": "C-10",
+   "name_zh": "藕荷",
+   "name_en": "Lotus Root",
+   "hex": "#C9AEB6",
+   "family": "传统",
+   "value": "浅",
+   "use": "柔美、母婴、香氛",
+   "pairs": "胭脂/奶白"
+  },
+  {
+   "id": "C-11",
+   "name_zh": "竹青",
+   "name_en": "Bamboo Green",
+   "hex": "#5A7D5A",
+   "family": "传统",
+   "value": "中",
+   "use": "茶禅、户外、环保",
+   "pairs": "月白/赭石"
+  },
+  {
+   "id": "C-12",
+   "name_zh": "墨黑",
+   "name_en": "Ink Black",
+   "hex": "#1C1B19",
+   "family": "传统",
+   "value": "极深",
+   "use": "书法、高对比、标题",
+   "pairs": "任何浅色"
+  },
+  {
+   "id": "C-13",
+   "name_zh": "雾灰",
+   "name_en": "Mist Grey",
+   "hex": "#D9D6CF",
+   "family": "现代",
+   "value": "浅",
+   "use": "背景底、极简、办公",
+   "pairs": "炭灰/橄榄"
+  },
+  {
+   "id": "C-14",
+   "name_zh": "燕麦",
+   "name_en": "Oat",
+   "hex": "#E6DCC8",
+   "family": "现代",
+   "value": "浅",
+   "use": "咖啡、家居、温和科普",
+   "pairs": "陶土/炭灰"
+  },
+  {
+   "id": "C-15",
+   "name_zh": "水泥",
+   "name_en": "Concrete",
+   "hex": "#9A968D",
+   "family": "现代",
+   "value": "中",
+   "use": "建筑、工业、冷淡风",
+   "pairs": "雾灰/炭灰"
+  },
+  {
+   "id": "C-16",
+   "name_zh": "雾霾蓝",
+   "name_en": "Haze Blue",
+   "hex": "#8FA6B2",
+   "family": "现代",
+   "value": "中浅",
+   "use": "通勤、金融、理性内容",
+   "pairs": "奶白/炭灰"
+  },
+  {
+   "id": "C-17",
+   "name_zh": "奶白",
+   "name_en": "Milk White",
+   "hex": "#F5F1E8",
+   "family": "现代",
+   "value": "极浅",
+   "use": "万能底、食品、亲和",
+   "pairs": "任何深色"
+  },
+  {
+   "id": "C-18",
+   "name_zh": "炭灰",
+   "name_en": "Charcoal",
+   "hex": "#4A4A48",
+   "family": "现代",
+   "value": "深",
+   "use": "正文、商务、克制",
+   "pairs": "雾灰/燕麦"
+  },
+  {
+   "id": "C-19",
+   "name_zh": "橄榄",
+   "name_en": "Olive",
+   "hex": "#6E7256",
+   "family": "现代",
+   "value": "中",
+   "use": "户外、军工、复古",
+   "pairs": "沙丘/炭灰"
+  },
+  {
+   "id": "C-20",
+   "name_zh": "陶土",
+   "name_en": "Terracotta",
+   "hex": "#C08465",
+   "family": "现代",
+   "value": "中",
+   "use": "手作、烘焙、温暖",
+   "pairs": "燕麦/墨绿"
+  },
+  {
+   "id": "C-21",
+   "name_zh": "荧光绿",
+   "name_en": "Fluoro Green",
+   "hex": "#B8F135",
+   "family": "高饱和",
+   "value": "亮",
+   "use": "潮流、运动、Z 世代",
+   "pairs": "炭黑/电光紫"
+  },
+  {
+   "id": "C-22",
+   "name_zh": "电光紫",
+   "name_en": "Electric Violet",
+   "hex": "#6B4EFF",
+   "family": "高饱和",
+   "value": "亮",
+   "use": "科技、音乐、AI 题材",
+   "pairs": "炭黑/柠檬黄"
+  },
+  {
+   "id": "C-23",
+   "name_zh": "品红",
+   "name_en": "Magenta",
+   "hex": "#E5327F",
+   "family": "高饱和",
+   "value": "亮",
+   "use": "美妆、女性、强吸睛",
+   "pairs": "奶白/墨黑"
+  },
+  {
+   "id": "C-24",
+   "name_zh": "柠檬黄",
+   "name_en": "Lemon",
+   "hex": "#FFD117",
+   "family": "高饱和",
+   "value": "亮",
+   "use": "促销、警示、活泼",
+   "pairs": "墨黑/橘红"
+  },
+  {
+   "id": "C-25",
+   "name_zh": "天青蓝",
+   "name_en": "Sky Cyan",
+   "hex": "#2FB3E8",
+   "family": "高饱和",
+   "value": "亮",
+   "use": "清爽、旅行、夏日",
+   "pairs": "奶白/橘红"
+  },
+  {
+   "id": "C-26",
+   "name_zh": "橘红",
+   "name_en": "Tangerine",
+   "hex": "#FF5B2E",
+   "family": "高饱和",
+   "value": "亮",
+   "use": "食欲、活动、紧迫感",
+   "pairs": "奶白/墨黑"
+  },
+  {
+   "id": "C-27",
+   "name_zh": "薄荷",
+   "name_en": "Mint",
+   "hex": "#3ED9A4",
+   "family": "高饱和",
+   "value": "亮",
+   "use": "健康、清新、医疗",
+   "pairs": "墨黑/奶白"
+  },
+  {
+   "id": "C-28",
+   "name_zh": "玫瑰金",
+   "name_en": "Rose Gold",
+   "hex": "#D9A08C",
+   "family": "高饱和",
+   "value": "中浅",
+   "use": "轻奢、珠宝、婚礼",
+   "pairs": "酒红/奶白"
+  },
+  {
+   "id": "C-29",
+   "name_zh": "午夜蓝",
+   "name_en": "Midnight",
+   "hex": "#121A2B",
+   "family": "暗调",
+   "value": "极深",
+   "use": "夜景、悬疑、高端",
+   "pairs": "月白/玫瑰金"
+  },
+  {
+   "id": "C-30",
+   "name_zh": "酒红",
+   "name_en": "Wine",
+   "hex": "#4A1220",
+   "family": "暗调",
+   "value": "深",
+   "use": "复古、成熟、餐饮",
+   "pairs": "燕麦/玫瑰金"
+  },
+  {
+   "id": "C-31",
+   "name_zh": "墨绿",
+   "name_en": "Ink Green",
+   "hex": "#16261F",
+   "family": "暗调",
+   "value": "极深",
+   "use": "植物、复古、质感",
+   "pairs": "沙丘/藤黄"
+  },
+  {
+   "id": "C-32",
+   "name_zh": "炭黑",
+   "name_en": "Carbon",
+   "hex": "#0E0E10",
+   "family": "暗调",
+   "value": "极深",
+   "use": "极简暗黑、科技",
+   "pairs": "荧光绿/品红"
+  },
+  {
+   "id": "C-33",
+   "name_zh": "苔藓",
+   "name_en": "Moss",
+   "hex": "#7A8B5A",
+   "family": "自然",
+   "value": "中",
+   "use": "森林、疗愈、慢生活",
+   "pairs": "沙丘/墨绿"
+  },
+  {
+   "id": "C-34",
+   "name_zh": "沙丘",
+   "name_en": "Dune",
+   "hex": "#D6C3A1",
+   "family": "自然",
+   "value": "浅",
+   "use": "沙漠、旅行、中性",
+   "pairs": "橄榄/锈红"
+  },
+  {
+   "id": "C-35",
+   "name_zh": "锈红",
+   "name_en": "Rust",
+   "hex": "#8F4B32",
+   "family": "自然",
+   "value": "中深",
+   "use": "工业复古、秋日、皮革",
+   "pairs": "沙丘/墨黑"
+  },
+  {
+   "id": "C-36",
+   "name_zh": "雾粉",
+   "name_en": "Dusty Pink",
+   "hex": "#E7C9C2",
+   "family": "自然",
+   "value": "浅",
+   "use": "柔和、治愈、日常",
+   "pairs": "陶土/奶白"
+  }
+ ]
+}

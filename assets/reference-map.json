@@ -1,0 +1,1217 @@
+{
+ "version": 1,
+ "count": 173,
+ "by_id": {
+  "1": {
+   "code": "CN-01",
+   "name": "宋式美学",
+   "image": "assets/dataset/images/001-100/001.webp",
+   "sha1": "6d369c962999",
+   "source": "一、中国古典、文人美学与东方幻想(37)/1. 宋式美学.jpg"
+  },
+  "2": {
+   "code": "CN-02",
+   "name": "盛唐气象",
+   "image": "assets/dataset/images/001-100/002.webp",
+   "sha1": "0523f269aef1",
+   "source": "一、中国古典、文人美学与东方幻想(37)/2. 盛唐气象.jpg"
+  },
+  "3": {
+   "code": "CN-03",
+   "name": "明式美学",
+   "image": "assets/dataset/images/001-100/003.webp",
+   "sha1": "ba8d4d71be45",
+   "source": "一、中国古典、文人美学与东方幻想(37)/3. 明式美学.jpg"
+  },
+  "4": {
+   "code": "CN-04",
+   "name": "魏晋风度",
+   "image": "assets/dataset/images/001-100/004.webp",
+   "sha1": "623fd4da7b20",
+   "source": "一、中国古典、文人美学与东方幻想(37)/4. 魏晋风度.jpg"
+  },
+  "5": {
+   "code": "CN-05",
+   "name": "新中式",
+   "image": "assets/dataset/images/001-100/005.webp",
+   "sha1": "1a12b76a2a24",
+   "source": "一、中国古典、文人美学与东方幻想(37)/5. 新中式.jpg"
+  },
+  "6": {
+   "code": "CN-06",
+   "name": "新国风",
+   "image": "assets/dataset/images/001-100/006.webp",
+   "sha1": "38845a0960fb",
+   "source": "一、中国古典、文人美学与东方幻想(37)/6. 新国风.jpg"
+  },
+  "7": {
+   "code": "CN-07",
+   "name": "东方禅意",
+   "image": "assets/dataset/images/001-100/007.webp",
+   "sha1": "2d45d5b349b3",
+   "source": "一、中国古典、文人美学与东方幻想(37)/7. 东方禅意.jpg"
+  },
+  "8": {
+   "code": "CN-08",
+   "name": "侘寂风（诧寂风）",
+   "image": "assets/dataset/images/001-100/008.webp",
+   "sha1": "3abb1ada0771",
+   "source": "一、中国古典、文人美学与东方幻想(37)/8. 侘寂风（诧寂风）.jpg"
+  },
+  "9": {
+   "code": "CN-09",
+   "name": "物哀",
+   "image": "assets/dataset/images/001-100/009.webp",
+   "sha1": "2d3c26052fb6",
+   "source": "一、中国古典、文人美学与东方幻想(37)/9. 物哀.jpg"
+  },
+  "10": {
+   "code": "CN-10",
+   "name": "幽玄",
+   "image": "assets/dataset/images/001-100/010.webp",
+   "sha1": "f421b76cca7a",
+   "source": "一、中国古典、文人美学与东方幻想(37)/10. 幽玄.jpg"
+  },
+  "11": {
+   "code": "CN-11",
+   "name": "留白",
+   "image": "assets/dataset/images/001-100/011.webp",
+   "sha1": "cbf6a65925c4",
+   "source": "一、中国古典、文人美学与东方幻想(37)/11. 留白.jpg"
+  },
+  "12": {
+   "code": "CN-12",
+   "name": "水墨风",
+   "image": "assets/dataset/images/001-100/012.webp",
+   "sha1": "453ae0cfa8c3",
+   "source": "一、中国古典、文人美学与东方幻想(37)/12. 水墨风.jpg"
+  },
+  "13": {
+   "code": "CN-13",
+   "name": "写意",
+   "image": "assets/dataset/images/001-100/013.webp",
+   "sha1": "8cc96c2ee59f",
+   "source": "一、中国古典、文人美学与东方幻想(37)/13. 写意.jpg"
+  },
+  "14": {
+   "code": "CN-14",
+   "name": "工笔画",
+   "image": "assets/dataset/images/001-100/014.webp",
+   "sha1": "d27c479eb1b6",
+   "source": "一、中国古典、文人美学与东方幻想(37)/14. 工笔画.jpg"
+  },
+  "15": {
+   "code": "CN-15",
+   "name": "白描",
+   "image": "assets/dataset/images/001-100/015.webp",
+   "sha1": "0c52ee1ba056",
+   "source": "一、中国古典、文人美学与东方幻想(37)/15. 白描.jpg"
+  },
+  "16": {
+   "code": "CN-16",
+   "name": "青绿山水",
+   "image": "assets/dataset/images/001-100/016.webp",
+   "sha1": "29e268bd05e9",
+   "source": "一、中国古典、文人美学与东方幻想(37)/16. 青绿山水.jpg"
+  },
+  "17": {
+   "code": "CN-17",
+   "name": "金碧山水",
+   "image": "assets/dataset/images/001-100/017.webp",
+   "sha1": "efe0e47440e0",
+   "source": "一、中国古典、文人美学与东方幻想(37)/17. 金碧山水.jpg"
+  },
+  "18": {
+   "code": "CN-18",
+   "name": "敦煌壁画",
+   "image": "assets/dataset/images/001-100/018.webp",
+   "sha1": "5480feed75b2",
+   "source": "一、中国古典、文人美学与东方幻想(37)/18. 敦煌壁画.jpg"
+  },
+  "19": {
+   "code": "CN-19",
+   "name": "敦煌美学",
+   "image": "assets/dataset/images/001-100/019.webp",
+   "sha1": "ba965f4b1524",
+   "source": "一、中国古典、文人美学与东方幻想(37)/19. 敦煌美学.jpg"
+  },
+  "20": {
+   "code": "CN-20",
+   "name": "唐卡",
+   "image": "assets/dataset/images/001-100/020.webp",
+   "sha1": "846eb842612d",
+   "source": "一、中国古典、文人美学与东方幻想(37)/20. 唐卡.jpg"
+  },
+  "21": {
+   "code": "CN-21",
+   "name": "国潮",
+   "image": "assets/dataset/images/001-100/021.webp",
+   "sha1": "6ae0a4be6f69",
+   "source": "一、中国古典、文人美学与东方幻想(37)/21. 国潮.jpg"
+  },
+  "22": {
+   "code": "CN-22",
+   "name": "仙侠风",
+   "image": "assets/dataset/images/001-100/022.webp",
+   "sha1": "a1b6ce220ebe",
+   "source": "一、中国古典、文人美学与东方幻想(37)/22. 仙侠风.jpg"
+  },
+  "23": {
+   "code": "CN-23",
+   "name": "武侠风",
+   "image": "assets/dataset/images/001-100/023.webp",
+   "sha1": "d2ed15270c3e",
+   "source": "一、中国古典、文人美学与东方幻想(37)/23. 武侠风.jpg"
+  },
+  "24": {
+   "code": "CN-24",
+   "name": "山海经风格",
+   "image": "assets/dataset/images/001-100/024.webp",
+   "sha1": "e91f2df8febf",
+   "source": "一、中国古典、文人美学与东方幻想(37)/24. 山海经风格.jpg"
+  },
+  "25": {
+   "code": "CN-25",
+   "name": "志怪风",
+   "image": "assets/dataset/images/001-100/025.webp",
+   "sha1": "9b0c1ae85b58",
+   "source": "一、中国古典、文人美学与东方幻想(37)/25. 志怪风.jpg"
+  },
+  "26": {
+   "code": "CN-26",
+   "name": "故宫美学",
+   "image": "assets/dataset/images/001-100/026.webp",
+   "sha1": "4b6e0bb25d7c",
+   "source": "一、中国古典、文人美学与东方幻想(37)/26. 故宫美学.jpg"
+  },
+  "27": {
+   "code": "CN-27",
+   "name": "苏州园林",
+   "image": "assets/dataset/images/001-100/027.webp",
+   "sha1": "116fb4b47979",
+   "source": "一、中国古典、文人美学与东方幻想(37)/27. 苏州园林.jpg"
+  },
+  "28": {
+   "code": "CN-28",
+   "name": "徽派建筑",
+   "image": "assets/dataset/images/001-100/028.webp",
+   "sha1": "83aa5fc76563",
+   "source": "一、中国古典、文人美学与东方幻想(37)/28. 徽派建筑.jpg"
+  },
+  "29": {
+   "code": "CN-29",
+   "name": "文人画",
+   "image": "assets/dataset/images/001-100/029.webp",
+   "sha1": "e749b1526d57",
+   "source": "一、中国古典、文人美学与东方幻想(37)/29. 文人画.jpg"
+  },
+  "30": {
+   "code": "CN-30",
+   "name": "汉服风",
+   "image": "assets/dataset/images/001-100/030.webp",
+   "sha1": "b795168f36bf",
+   "source": "一、中国古典、文人美学与东方幻想(37)/30. 汉服风.jpg"
+  },
+  "31": {
+   "code": "CN-31",
+   "name": "道法自然",
+   "image": "assets/dataset/images/001-100/031.webp",
+   "sha1": "f8c96240d36c",
+   "source": "一、中国古典、文人美学与东方幻想(37)/31. 道法自然.jpg"
+  },
+  "32": {
+   "code": "CN-32",
+   "name": "岁朝清供",
+   "image": "assets/dataset/images/001-100/032.webp",
+   "sha1": "9107c40bbe3a",
+   "source": "一、中国古典、文人美学与东方幻想(37)/32. 岁朝清供.jpg"
+  },
+  "33": {
+   "code": "CN-33",
+   "name": "禅画",
+   "image": "assets/dataset/images/001-100/033.webp",
+   "sha1": "39268b453b98",
+   "source": "一、中国古典、文人美学与东方幻想(37)/33. 禅画.jpg"
+  },
+  "34": {
+   "code": "CN-34",
+   "name": "水墨动画",
+   "image": "assets/dataset/images/001-100/034.webp",
+   "sha1": "6e8d065e756c",
+   "source": "一、中国古典、文人美学与东方幻想(37)/34. 水墨动画.jpg"
+  },
+  "35": {
+   "code": "CN-35",
+   "name": "泼墨山水",
+   "image": "assets/dataset/images/001-100/035.webp",
+   "sha1": "89737da50449",
+   "source": "一、中国古典、文人美学与东方幻想(37)/35. 泼墨山水.jpg"
+  },
+  "36": {
+   "code": "CN-36",
+   "name": "宣纸画",
+   "image": "assets/dataset/images/001-100/036.webp",
+   "sha1": "c68802e716fa",
+   "source": "一、中国古典、文人美学与东方幻想(37)/36. 宣纸画.jpg"
+  },
+  "37": {
+   "code": "CN-37",
+   "name": "中国风",
+   "image": "assets/dataset/images/001-100/037.webp",
+   "sha1": "fd8d68e2e0bf",
+   "source": "一、中国古典、文人美学与东方幻想(37)/37. 中国风.jpg"
+  },
+  "38": {
+   "code": "JP-01",
+   "name": "浮世绘",
+   "image": "assets/dataset/images/001-100/038.webp",
+   "sha1": "7e86926d3f86",
+   "source": "二、日本与东亚近现代美学(12)/38. 浮世绘.jpg"
+  },
+  "39": {
+   "code": "JP-02",
+   "name": "琳派",
+   "image": "assets/dataset/images/001-100/039.webp",
+   "sha1": "87c8cae053d5",
+   "source": "二、日本与东亚近现代美学(12)/39. 琳派.jpg"
+  },
+  "40": {
+   "code": "JP-03",
+   "name": "狩野派",
+   "image": "assets/dataset/images/001-100/040.webp",
+   "sha1": "9e51dbf2f671",
+   "source": "二、日本与东亚近现代美学(12)/40. 狩野派.jpg"
+  },
+  "41": {
+   "code": "JP-04",
+   "name": "昭和风",
+   "image": "assets/dataset/images/001-100/041.webp",
+   "sha1": "7681b1d00be0",
+   "source": "二、日本与东亚近现代美学(12)/41. 昭和风.jpg"
+  },
+  "42": {
+   "code": "JP-05",
+   "name": "昭和复古",
+   "image": "assets/dataset/images/001-100/042.webp",
+   "sha1": "6bf40b7c22d1",
+   "source": "二、日本与东亚近现代美学(12)/42. 昭和复古.jpg"
+  },
+  "43": {
+   "code": "JP-06",
+   "name": "大正浪漫",
+   "image": "assets/dataset/images/001-100/043.webp",
+   "sha1": "707eb83e29d7",
+   "source": "二、日本与东亚近现代美学(12)/43. 大正浪漫.jpg"
+  },
+  "44": {
+   "code": "JP-07",
+   "name": "日式风格",
+   "image": "assets/dataset/images/001-100/044.webp",
+   "sha1": "0b956de2a843",
+   "source": "二、日本与东亚近现代美学(12)/44. 日式风格.jpg"
+  },
+  "45": {
+   "code": "JP-08",
+   "name": "和风",
+   "image": "assets/dataset/images/001-100/045.webp",
+   "sha1": "4a86ecf8c13a",
+   "source": "二、日本与东亚近现代美学(12)/45. 和风.jpg"
+  },
+  "46": {
+   "code": "JP-09",
+   "name": "吉卜力工作室风格",
+   "image": "assets/dataset/images/001-100/046.webp",
+   "sha1": "5fa665c2957f",
+   "source": "二、日本与东亚近现代美学(12)/46. 吉卜力工作室风格.jpg"
+  },
+  "47": {
+   "code": "JP-10",
+   "name": "宫崎骏风格",
+   "image": "assets/dataset/images/001-100/047.webp",
+   "sha1": "04d868802969",
+   "source": "二、日本与东亚近现代美学(12)/47. 宫崎骏风格.jpg"
+  },
+  "48": {
+   "code": "JP-11",
+   "name": "新海诚风",
+   "image": "assets/dataset/images/001-100/048.webp",
+   "sha1": "66345de838a8",
+   "source": "二、日本与东亚近现代美学(12)/48. 新海诚风.jpg"
+  },
+  "49": {
+   "code": "JP-12",
+   "name": "今敏风",
+   "image": "assets/dataset/images/001-100/049.webp",
+   "sha1": "1f5f28b1f776",
+   "source": "二、日本与东亚近现代美学(12)/49. 今敏风.jpg"
+  },
+  "50": {
+   "code": "WR-01",
+   "name": "韩式美学",
+   "image": "assets/dataset/images/001-100/050.webp",
+   "sha1": "c2086b371804",
+   "source": "三、世界区域美学（12）/50. 韩式美学.jpg"
+  },
+  "51": {
+   "code": "WR-02",
+   "name": "韩漫风",
+   "image": "assets/dataset/images/001-100/051.webp",
+   "sha1": "b1079aab2fb4",
+   "source": "三、世界区域美学（12）/51. 韩漫风.jpg"
+  },
+  "52": {
+   "code": "WR-03",
+   "name": "印度风",
+   "image": "assets/dataset/images/001-100/052.webp",
+   "sha1": "7ec6aadf51ea",
+   "source": "三、世界区域美学（12）/52. 印度风.jpg"
+  },
+  "53": {
+   "code": "WR-04",
+   "name": "波斯细密画",
+   "image": "assets/dataset/images/001-100/053.webp",
+   "sha1": "aaa9c7bada5b",
+   "source": "三、世界区域美学（12）/53. 波斯细密画.jpg"
+  },
+  "54": {
+   "code": "WR-05",
+   "name": "埃及艺术",
+   "image": "assets/dataset/images/001-100/054.webp",
+   "sha1": "0b860681c9d4",
+   "source": "三、世界区域美学（12）/54. 埃及艺术.jpg"
+  },
+  "55": {
+   "code": "WR-06",
+   "name": "非洲部落艺术",
+   "image": "assets/dataset/images/001-100/055.webp",
+   "sha1": "ff09df5e93dc",
+   "source": "三、世界区域美学（12）/55. 非洲部落艺术.jpg"
+  },
+  "56": {
+   "code": "WR-07",
+   "name": "墨西哥亡灵节风格",
+   "image": "assets/dataset/images/001-100/056.webp",
+   "sha1": "3d689b21c3e7",
+   "source": "三、世界区域美学（12）/56. 墨西哥亡灵节风格.jpg"
+  },
+  "57": {
+   "code": "WR-08",
+   "name": "北欧风格",
+   "image": "assets/dataset/images/001-100/057.webp",
+   "sha1": "94da42c2e67a",
+   "source": "三、世界区域美学（12）/57. 北欧风格.jpg"
+  },
+  "58": {
+   "code": "WR-09",
+   "name": "斯堪的纳维亚风格",
+   "image": "assets/dataset/images/001-100/058.webp",
+   "sha1": "f5896ec3fc2c",
+   "source": "三、世界区域美学（12）/58. 斯堪的纳维亚风格.jpg"
+  },
+  "59": {
+   "code": "WR-10",
+   "name": "斯拉夫神话风格",
+   "image": "assets/dataset/images/001-100/059.webp",
+   "sha1": "a7eb972c0f1e",
+   "source": "三、世界区域美学（12）/59. 斯拉夫神话风格.jpg"
+  },
+  "60": {
+   "code": "WR-11",
+   "name": "美式复古",
+   "image": "assets/dataset/images/001-100/060.webp",
+   "sha1": "5807e879df6f",
+   "source": "三、世界区域美学（12）/60. 美式复古.jpg"
+  },
+  "61": {
+   "code": "WR-12",
+   "name": "波西米亚风",
+   "image": "assets/dataset/images/001-100/061.webp",
+   "sha1": "4b3626607c16",
+   "source": "三、世界区域美学（12）/61. 波西米亚风.jpg"
+  },
+  "62": {
+   "code": "WE-01",
+   "name": "印象派",
+   "image": "assets/dataset/images/001-100/062.webp",
+   "sha1": "f7881490c0c7",
+   "source": "四、西方艺术流派(28)/62. 印象派.jpg"
+  },
+  "63": {
+   "code": "WE-02",
+   "name": "后印象派",
+   "image": "assets/dataset/images/001-100/063.webp",
+   "sha1": "4d746924c298",
+   "source": "四、西方艺术流派(28)/63. 后印象派.jpg"
+  },
+  "64": {
+   "code": "WE-03",
+   "name": "表现主义",
+   "image": "assets/dataset/images/001-100/064.webp",
+   "sha1": "fab4bfad7664",
+   "source": "四、西方艺术流派(28)/64. 表现主义.jpg"
+  },
+  "65": {
+   "code": "WE-04",
+   "name": "抽象表现主义",
+   "image": "assets/dataset/images/001-100/065.webp",
+   "sha1": "0fde0eefdad8",
+   "source": "四、西方艺术流派(28)/65. 抽象表现主义.jpg"
+  },
+  "66": {
+   "code": "WE-05",
+   "name": "超现实主义",
+   "image": "assets/dataset/images/001-100/066.webp",
+   "sha1": "66861af62b45",
+   "source": "四、西方艺术流派(28)/66. 超现实主义.jpg"
+  },
+  "67": {
+   "code": "WE-06",
+   "name": "达达主义",
+   "image": "assets/dataset/images/001-100/067.webp",
+   "sha1": "e70ac559c49a",
+   "source": "四、西方艺术流派(28)/67. 达达主义.jpg"
+  },
+  "68": {
+   "code": "WE-07",
+   "name": "立体主义",
+   "image": "assets/dataset/images/001-100/068.webp",
+   "sha1": "b919ad29b82e",
+   "source": "四、西方艺术流派(28)/68. 立体主义.jpg"
+  },
+  "69": {
+   "code": "WE-08",
+   "name": "新艺术运动",
+   "image": "assets/dataset/images/001-100/069.webp",
+   "sha1": "7403ca5bcfac",
+   "source": "四、西方艺术流派(28)/69. 新艺术运动.jpg"
+  },
+  "70": {
+   "code": "WE-09",
+   "name": "装饰艺术运动（Art Deco）",
+   "image": "assets/dataset/images/001-100/070.webp",
+   "sha1": "d947a5f49993",
+   "source": "四、西方艺术流派(28)/70. 装饰艺术运动（Art Deco）.jpg"
+  },
+  "71": {
+   "code": "WE-10",
+   "name": "巴洛克风格",
+   "image": "assets/dataset/images/001-100/071.webp",
+   "sha1": "e22f8c17b596",
+   "source": "四、西方艺术流派(28)/71. 巴洛克风格.jpg"
+  },
+  "72": {
+   "code": "WE-11",
+   "name": "洛可可风格",
+   "image": "assets/dataset/images/001-100/072.webp",
+   "sha1": "162546da177f",
+   "source": "四、西方艺术流派(28)/72. 洛可可风格.jpg"
+  },
+  "73": {
+   "code": "WE-12",
+   "name": "新古典主义",
+   "image": "assets/dataset/images/001-100/073.webp",
+   "sha1": "18f86bdb511d",
+   "source": "四、西方艺术流派(28)/73. 新古典主义.jpg"
+  },
+  "74": {
+   "code": "WE-13",
+   "name": "浪漫主义",
+   "image": "assets/dataset/images/001-100/074.webp",
+   "sha1": "0db648408588",
+   "source": "四、西方艺术流派(28)/74. 浪漫主义.jpg"
+  },
+  "75": {
+   "code": "WE-14",
+   "name": "现实主义",
+   "image": "assets/dataset/images/001-100/075.webp",
+   "sha1": "7b8f689976c9",
+   "source": "四、西方艺术流派(28)/75. 现实主义.jpg"
+  },
+  "76": {
+   "code": "WE-15",
+   "name": "象征主义",
+   "image": "assets/dataset/images/001-100/076.webp",
+   "sha1": "285210642c3a",
+   "source": "四、西方艺术流派(28)/76. 象征主义.jpg"
+  },
+  "77": {
+   "code": "WE-16",
+   "name": "拉斐尔前派",
+   "image": "assets/dataset/images/001-100/077.webp",
+   "sha1": "8f6b375db0fd",
+   "source": "四、西方艺术流派(28)/77. 拉斐尔前派.jpg"
+  },
+  "78": {
+   "code": "WE-17",
+   "name": "未来主义",
+   "image": "assets/dataset/images/001-100/078.webp",
+   "sha1": "52bee87c9bff",
+   "source": "四、西方艺术流派(28)/78. 未来主义.jpg"
+  },
+  "79": {
+   "code": "WE-18",
+   "name": "构成主义",
+   "image": "assets/dataset/images/001-100/079.webp",
+   "sha1": "f9e849a3a0cb",
+   "source": "四、西方艺术流派(28)/79. 构成主义.jpg"
+  },
+  "80": {
+   "code": "WE-19",
+   "name": "包豪斯风格",
+   "image": "assets/dataset/images/001-100/080.webp",
+   "sha1": "f5cceaf16dfe",
+   "source": "四、西方艺术流派(28)/80. 包豪斯风格.jpg"
+  },
+  "81": {
+   "code": "WE-20",
+   "name": "中世纪美学",
+   "image": "assets/dataset/images/001-100/081.webp",
+   "sha1": "a1f47c1eb86e",
+   "source": "四、西方艺术流派(28)/81. 中世纪美学.jpg"
+  },
+  "82": {
+   "code": "WE-21",
+   "name": "文艺复兴风格",
+   "image": "assets/dataset/images/001-100/082.webp",
+   "sha1": "c5d0508773ae",
+   "source": "四、西方艺术流派(28)/82. 文艺复兴风格.jpg"
+  },
+  "83": {
+   "code": "WE-22",
+   "name": "波普艺术",
+   "image": "assets/dataset/images/001-100/083.webp",
+   "sha1": "f8b5d7186830",
+   "source": "四、西方艺术流派(28)/83. 波普艺术.jpg"
+  },
+  "84": {
+   "code": "WE-23",
+   "name": "马赛克",
+   "image": "assets/dataset/images/001-100/084.webp",
+   "sha1": "481d164a1f17",
+   "source": "四、西方艺术流派(28)/84. 马赛克.jpg"
+  },
+  "85": {
+   "code": "WE-24",
+   "name": "木板画",
+   "image": "assets/dataset/images/001-100/085.webp",
+   "sha1": "f7256a557b64",
+   "source": "四、西方艺术流派(28)/85. 木板画.jpg"
+  },
+  "86": {
+   "code": "WE-25",
+   "name": "铜版画",
+   "image": "assets/dataset/images/001-100/086.webp",
+   "sha1": "efe472c659ac",
+   "source": "四、西方艺术流派(28)/86. 铜版画.jpg"
+  },
+  "87": {
+   "code": "WE-26",
+   "name": "石版画",
+   "image": "assets/dataset/images/001-100/087.webp",
+   "sha1": "7b9b720b3557",
+   "source": "四、西方艺术流派(28)/87. 石版画.jpg"
+  },
+  "88": {
+   "code": "WE-27",
+   "name": "油画风",
+   "image": "assets/dataset/images/001-100/088.webp",
+   "sha1": "45d85f0aab7b",
+   "source": "四、西方艺术流派(28)/88. 油画风.jpg"
+  },
+  "89": {
+   "code": "WE-28",
+   "name": "油画肌理",
+   "image": "assets/dataset/images/001-100/089.webp",
+   "sha1": "fd058185488d",
+   "source": "四、西方艺术流派(28)/89. 油画肌理.jpg"
+  },
+  "90": {
+   "code": "DG-01",
+   "name": "极简主义",
+   "image": "assets/dataset/images/001-100/090.webp",
+   "sha1": "b0127176058b",
+   "source": "五、数字、科幻与现代设计（19 项）/90. 极简主义.jpg"
+  },
+  "91": {
+   "code": "DG-02",
+   "name": "极繁主义",
+   "image": "assets/dataset/images/001-100/091.webp",
+   "sha1": "d0ecfe235a40",
+   "source": "五、数字、科幻与现代设计（19 项）/91. 极繁主义.jpg"
+  },
+  "92": {
+   "code": "DG-03",
+   "name": "赛博朋克",
+   "image": "assets/dataset/images/001-100/092.webp",
+   "sha1": "a6a7e0df1521",
+   "source": "五、数字、科幻与现代设计（19 项）/92. 赛博朋克.jpg"
+  },
+  "93": {
+   "code": "DG-04",
+   "name": "蒸汽波（蒸汽波美学）",
+   "image": "assets/dataset/images/001-100/093.webp",
+   "sha1": "872ad23bd3b6",
+   "source": "五、数字、科幻与现代设计（19 项）/93. 蒸汽波（蒸汽波美学）.jpg"
+  },
+  "94": {
+   "code": "DG-05",
+   "name": "千禧年美学（Y2K）",
+   "image": "assets/dataset/images/001-100/094.webp",
+   "sha1": "111e3bc95117",
+   "source": "五、数字、科幻与现代设计（19 项）/94. 千禧年美学（Y2K）.jpg"
+  },
+  "95": {
+   "code": "DG-06",
+   "name": "三维渲染",
+   "image": "assets/dataset/images/001-100/095.webp",
+   "sha1": "c29fbde8b76f",
+   "source": "五、数字、科幻与现代设计（19 项）/95. 三维渲染.jpg"
+  },
+  "96": {
+   "code": "DG-07",
+   "name": "复古主义",
+   "image": "assets/dataset/images/001-100/096.webp",
+   "sha1": "668ef2db5f86",
+   "source": "五、数字、科幻与现代设计（19 项）/96. 复古主义.jpg"
+  },
+  "97": {
+   "code": "DG-08",
+   "name": "复古褪色",
+   "image": "assets/dataset/images/001-100/097.webp",
+   "sha1": "6ae4af322e47",
+   "source": "五、数字、科幻与现代设计（19 项）/97. 复古褪色.jpg"
+  },
+  "98": {
+   "code": "DG-09",
+   "name": "废土风",
+   "image": "assets/dataset/images/001-100/098.webp",
+   "sha1": "cda7dc610905",
+   "source": "五、数字、科幻与现代设计（19 项）/98. 废土风.jpg"
+  },
+  "99": {
+   "code": "DG-10",
+   "name": "像素风",
+   "image": "assets/dataset/images/001-100/099.webp",
+   "sha1": "2666ee7c2500",
+   "source": "五、数字、科幻与现代设计（19 项）/99. 像素风.jpg"
+  },
+  "100": {
+   "code": "DG-11",
+   "name": "低多边形",
+   "image": "assets/dataset/images/001-100/100.webp",
+   "sha1": "9e09d970be48",
+   "source": "五、数字、科幻与现代设计（19 项）/100. 低多边形.jpg"
+  },
+  "101": {
+   "code": "DG-12",
+   "name": "酸性美学",
+   "image": "assets/dataset/images/101-200/101.webp",
+   "sha1": "bcc6f73e07ec",
+   "source": "五、数字、科幻与现代设计（19 项）/101. 酸性美学.jpg"
+  },
+  "102": {
+   "code": "DG-13",
+   "name": "蒸汽朋克",
+   "image": "assets/dataset/images/101-200/102.webp",
+   "sha1": "b10dd8b5497b",
+   "source": "五、数字、科幻与现代设计（19 项）/102. 蒸汽朋克.jpg"
+  },
+  "103": {
+   "code": "DG-14",
+   "name": "柴油朋克",
+   "image": "assets/dataset/images/101-200/103.webp",
+   "sha1": "2ff6a419d242",
+   "source": "五、数字、科幻与现代设计（19 项）/103. 柴油朋克.jpg"
+  },
+  "104": {
+   "code": "DG-15",
+   "name": "太阳能朋克",
+   "image": "assets/dataset/images/101-200/104.webp",
+   "sha1": "f3b1b6891ccb",
+   "source": "五、数字、科幻与现代设计（19 项）/104. 太阳能朋克.jpg"
+  },
+  "105": {
+   "code": "DG-16",
+   "name": "生物朋克",
+   "image": "assets/dataset/images/101-200/105.webp",
+   "sha1": "eec4ae6a75c1",
+   "source": "五、数字、科幻与现代设计（19 项）/105. 生物朋克.jpg"
+  },
+  "106": {
+   "code": "DG-17",
+   "name": "故障艺术",
+   "image": "assets/dataset/images/101-200/106.webp",
+   "sha1": "abbbb239d585",
+   "source": "五、数字、科幻与现代设计（19 项）/106. 故障艺术.jpg"
+  },
+  "107": {
+   "code": "DG-18",
+   "name": "科幻风",
+   "image": "assets/dataset/images/101-200/107.webp",
+   "sha1": "c8adc1e0d046",
+   "source": "五、数字、科幻与现代设计（19 项）/107. 科幻风.jpg"
+  },
+  "108": {
+   "code": "DG-19",
+   "name": "奇幻风",
+   "image": "assets/dataset/images/101-200/108.webp",
+   "sha1": "dc9de95be000",
+   "source": "五、数字、科幻与现代设计（19 项）/108. 奇幻风.jpg"
+  },
+  "109": {
+   "code": "PH-01",
+   "name": "胶片摄影",
+   "image": "assets/dataset/images/101-200/109.webp",
+   "sha1": "7b0ecf37dae0",
+   "source": "六、摄影与光影（11 项）/109. 胶片摄影.jpg"
+  },
+  "110": {
+   "code": "PH-02",
+   "name": "宝丽来",
+   "image": "assets/dataset/images/101-200/110.webp",
+   "sha1": "9240f5122294",
+   "source": "六、摄影与光影（11 项）/110. 宝丽来.jpg"
+  },
+  "111": {
+   "code": "PH-03",
+   "name": "拍立得",
+   "image": "assets/dataset/images/101-200/111.webp",
+   "sha1": "0054e67c74a1",
+   "source": "六、摄影与光影（11 项）/111. 拍立得.jpg"
+  },
+  "112": {
+   "code": "PH-04",
+   "name": "柯达胶片风",
+   "image": "assets/dataset/images/101-200/112.webp",
+   "sha1": "69c60b1d5ec2",
+   "source": "六、摄影与光影（11 项）/112. 柯达胶片风.jpg"
+  },
+  "113": {
+   "code": "PH-05",
+   "name": "富士胶片风",
+   "image": "assets/dataset/images/101-200/113.webp",
+   "sha1": "bd0517a35f96",
+   "source": "六、摄影与光影（11 项）/113. 富士胶片风.jpg"
+  },
+  "114": {
+   "code": "PH-06",
+   "name": "人像摄影",
+   "image": "assets/dataset/images/101-200/114.webp",
+   "sha1": "cf199b22942b",
+   "source": "六、摄影与光影（11 项）/114. 人像摄影.jpg"
+  },
+  "115": {
+   "code": "PH-07",
+   "name": "时尚摄影",
+   "image": "assets/dataset/images/101-200/115.webp",
+   "sha1": "964095d2c63c",
+   "source": "六、摄影与光影（11 项）/115. 时尚摄影.jpg"
+  },
+  "116": {
+   "code": "PH-08",
+   "name": "街头摄影",
+   "image": "assets/dataset/images/101-200/116.webp",
+   "sha1": "c269955c1681",
+   "source": "六、摄影与光影（11 项）/116. 街头摄影.jpg"
+  },
+  "117": {
+   "code": "PH-09",
+   "name": "丁达尔效应",
+   "image": "assets/dataset/images/101-200/117.webp",
+   "sha1": "5891f7bbd760",
+   "source": "六、摄影与光影（11 项）/117. 丁达尔效应.jpg"
+  },
+  "118": {
+   "code": "PH-10",
+   "name": "浅景深",
+   "image": "assets/dataset/images/101-200/118.webp",
+   "sha1": "07200b0da839",
+   "source": "六、摄影与光影（11 项）/118. 浅景深.jpg"
+  },
+  "119": {
+   "code": "PH-11",
+   "name": "电影感",
+   "image": "assets/dataset/images/101-200/119.webp",
+   "sha1": "e128b46e60b4",
+   "source": "六、摄影与光影（11 项）/119. 电影感.jpg"
+  },
+  "120": {
+   "code": "IL-01",
+   "name": "动漫风",
+   "image": "assets/dataset/images/101-200/120.webp",
+   "sha1": "53fa0fe9031b",
+   "source": "七、插画、动画与绘本（19 项）/120. 动漫风.jpg"
+  },
+  "121": {
+   "code": "IL-02",
+   "name": "二次元",
+   "image": "assets/dataset/images/101-200/121.webp",
+   "sha1": "46c00e3815e9",
+   "source": "七、插画、动画与绘本（19 项）/121. 二次元.jpg"
+  },
+  "122": {
+   "code": "IL-03",
+   "name": "美漫风",
+   "image": "assets/dataset/images/101-200/122.webp",
+   "sha1": "541013d2bd81",
+   "source": "七、插画、动画与绘本（19 项）/122. 美漫风.jpg"
+  },
+  "123": {
+   "code": "IL-04",
+   "name": "皮克斯风",
+   "image": "assets/dataset/images/101-200/123.webp",
+   "sha1": "008a8cf718fa",
+   "source": "七、插画、动画与绘本（19 项）/123. 皮克斯风.jpg"
+  },
+  "124": {
+   "code": "IL-05",
+   "name": "迪士尼风",
+   "image": "assets/dataset/images/101-200/124.webp",
+   "sha1": "1cd32bb881a4",
+   "source": "七、插画、动画与绘本（19 项）/124. 迪士尼风.jpg"
+  },
+  "125": {
+   "code": "IL-06",
+   "name": "梦工厂风",
+   "image": "assets/dataset/images/101-200/125.webp",
+   "sha1": "6f0ac8af8d7d",
+   "source": "七、插画、动画与绘本（19 项）/125. 梦工厂风.jpg"
+  },
+  "126": {
+   "code": "IL-07",
+   "name": "绘本风",
+   "image": "assets/dataset/images/101-200/126.webp",
+   "sha1": "5f9f52626f05",
+   "source": "七、插画、动画与绘本（19 项）/126. 绘本风.jpg"
+  },
+  "127": {
+   "code": "IL-08",
+   "name": "扁平插画",
+   "image": "assets/dataset/images/101-200/127.webp",
+   "sha1": "c6af4489f8e8",
+   "source": "七、插画、动画与绘本（19 项）/127. 扁平插画.jpg"
+  },
+  "128": {
+   "code": "IL-09",
+   "name": "矢量插画",
+   "image": "assets/dataset/images/101-200/128.webp",
+   "sha1": "f990169b19b7",
+   "source": "七、插画、动画与绘本（19 项）/128. 矢量插画.jpg"
+  },
+  "129": {
+   "code": "IL-10",
+   "name": "素描风",
+   "image": "assets/dataset/images/101-200/129.webp",
+   "sha1": "b263d5b77598",
+   "source": "七、插画、动画与绘本（19 项）/129. 素描风.jpg"
+  },
+  "130": {
+   "code": "IL-11",
+   "name": "蜡笔画风",
+   "image": "assets/dataset/images/101-200/130.webp",
+   "sha1": "75cc9bcc61a3",
+   "source": "七、插画、动画与绘本（19 项）/130. 蜡笔画风.jpg"
+  },
+  "131": {
+   "code": "IL-12",
+   "name": "粉笔画风",
+   "image": "assets/dataset/images/101-200/131.webp",
+   "sha1": "dedf9c5a4ed3",
+   "source": "七、插画、动画与绘本（19 项）/131. 粉笔画风.jpg"
+  },
+  "132": {
+   "code": "IL-13",
+   "name": "赛璐珞动画",
+   "image": "assets/dataset/images/101-200/132.webp",
+   "sha1": "abf50d353691",
+   "source": "七、插画、动画与绘本（19 项）/132. 赛璐珞动画.jpg"
+  },
+  "133": {
+   "code": "IL-14",
+   "name": "黏土风",
+   "image": "assets/dataset/images/101-200/133.webp",
+   "sha1": "8b54fb05f93e",
+   "source": "七、插画、动画与绘本（19 项）/133. 黏土风.jpg"
+  },
+  "134": {
+   "code": "IL-15",
+   "name": "折纸风",
+   "image": "assets/dataset/images/101-200/134.webp",
+   "sha1": "fc744af546b3",
+   "source": "七、插画、动画与绘本（19 项）/134. 折纸风.jpg"
+  },
+  "135": {
+   "code": "IL-16",
+   "name": "水彩画风",
+   "image": "assets/dataset/images/101-200/135.webp",
+   "sha1": "a71ce0f21766",
+   "source": "七、插画、动画与绘本（19 项）/135. 水彩画风.jpg"
+  },
+  "136": {
+   "code": "IL-17",
+   "name": "水彩纸纹",
+   "image": "assets/dataset/images/101-200/136.webp",
+   "sha1": "7db479b7394e",
+   "source": "七、插画、动画与绘本（19 项）/136. 水彩纸纹.jpg"
+  },
+  "137": {
+   "code": "IL-18",
+   "name": "波点艺术",
+   "image": "assets/dataset/images/101-200/137.webp",
+   "sha1": "bae6ac0b966a",
+   "source": "七、插画、动画与绘本（19 项）/137. 波点艺术.jpg"
+  },
+  "138": {
+   "code": "IL-19",
+   "name": "草间弥生风格",
+   "image": "assets/dataset/images/101-200/138.webp",
+   "sha1": "07c1ca271561",
+   "source": "七、插画、动画与绘本（19 项）/138. 草间弥生风格.jpg"
+  },
+  "139": {
+   "code": "CO-01",
+   "name": "莫兰迪色系",
+   "image": "assets/dataset/images/101-200/139.webp",
+   "sha1": "b10eafd9e804",
+   "source": "八、色彩与调性（13 项）/139. 莫兰迪色系.jpg"
+  },
+  "140": {
+   "code": "CO-02",
+   "name": "马卡龙色系",
+   "image": "assets/dataset/images/101-200/140.webp",
+   "sha1": "a61f93854970",
+   "source": "八、色彩与调性（13 项）/140. 马卡龙色系.jpg"
+  },
+  "141": {
+   "code": "CO-03",
+   "name": "糖果色",
+   "image": "assets/dataset/images/101-200/141.webp",
+   "sha1": "67996a511514",
+   "source": "八、色彩与调性（13 项）/141. 糖果色.jpg"
+  },
+  "142": {
+   "code": "CO-04",
+   "name": "霓虹色",
+   "image": "assets/dataset/images/101-200/142.webp",
+   "sha1": "f5c3bb0b64da",
+   "source": "八、色彩与调性（13 项）/142. 霓虹色.jpg"
+  },
+  "143": {
+   "code": "CO-05",
+   "name": "荧光色",
+   "image": "assets/dataset/images/101-200/143.webp",
+   "sha1": "fd44f96bd851",
+   "source": "八、色彩与调性（13 项）/143. 荧光色.jpg"
+  },
+  "144": {
+   "code": "CO-06",
+   "name": "高饱和度",
+   "image": "assets/dataset/images/101-200/144.webp",
+   "sha1": "f85dddab2932",
+   "source": "八、色彩与调性（13 项）/144. 高饱和度.jpg"
+  },
+  "145": {
+   "code": "CO-07",
+   "name": "低饱和度",
+   "image": "assets/dataset/images/101-200/145.webp",
+   "sha1": "cea17454a8e9",
+   "source": "八、色彩与调性（13 项）/145. 低饱和度.jpg"
+  },
+  "146": {
+   "code": "CO-08",
+   "name": "灰调",
+   "image": "assets/dataset/images/101-200/146.webp",
+   "sha1": "12d6b1bce3fd",
+   "source": "八、色彩与调性（13 项）/146. 灰调.jpg"
+  },
+  "147": {
+   "code": "CO-09",
+   "name": "单色调",
+   "image": "assets/dataset/images/101-200/147.webp",
+   "sha1": "340f8e159a7b",
+   "source": "八、色彩与调性（13 项）/147. 单色调.jpg"
+  },
+  "148": {
+   "code": "CO-10",
+   "name": "黑白",
+   "image": "assets/dataset/images/101-200/148.webp",
+   "sha1": "1a1850257e2a",
+   "source": "八、色彩与调性（13 项）/148. 黑白.jpg"
+  },
+  "149": {
+   "code": "CO-11",
+   "name": "暖色调",
+   "image": "assets/dataset/images/101-200/149.webp",
+   "sha1": "59e8af126584",
+   "source": "八、色彩与调性（13 项）/149. 暖色调.jpg"
+  },
+  "150": {
+   "code": "CO-12",
+   "name": "冷色调",
+   "image": "assets/dataset/images/101-200/150.webp",
+   "sha1": "28e76aad8e49",
+   "source": "八、色彩与调性（13 项）/150. 冷色调.jpg"
+  },
+  "151": {
+   "code": "CO-13",
+   "name": "粉彩",
+   "image": "assets/dataset/images/101-200/151.webp",
+   "sha1": "48df5f7a1c00",
+   "source": "八、色彩与调性（13 项）/151. 粉彩.jpg"
+  },
+  "152": {
+   "code": "SB-01",
+   "name": "哥特风",
+   "image": "assets/dataset/images/101-200/152.webp",
+   "sha1": "771f95f45813",
+   "source": "九、亚文化与暗黑美学（3 项）/152. 哥特风.jpg"
+  },
+  "153": {
+   "code": "SB-02",
+   "name": "暗黑风",
+   "image": "assets/dataset/images/101-200/153.webp",
+   "sha1": "e83a42688161",
+   "source": "九、亚文化与暗黑美学（3 项）/153. 暗黑风.jpg"
+  },
+  "154": {
+   "code": "SB-03",
+   "name": "洛丽塔街头文化",
+   "image": "assets/dataset/images/101-200/154.webp",
+   "sha1": "90376534a6cd",
+   "source": "九、亚文化与暗黑美学（3 项）/154. 洛丽塔街头文化.jpg"
+  },
+  "155": {
+   "code": "EX-01",
+   "name": "电影写真",
+   "image": "assets/dataset/images/101-200/155.webp",
+   "sha1": "3366fdc05d32",
+   "source": "十、新增19款风格/155. 电影写真.jpg"
+  },
+  "156": {
+   "code": "EX-02",
+   "name": "风景",
+   "image": "assets/dataset/images/101-200/156.webp",
+   "sha1": "078e897fa501",
+   "source": "十、新增19款风格/156. 风景.jpg"
+  },
+  "157": {
+   "code": "EX-03",
+   "name": "手办",
+   "image": "assets/dataset/images/101-200/157.webp",
+   "sha1": "371638149cad",
+   "source": "十、新增19款风格/157. 手办.jpg"
+  },
+  "158": {
+   "code": "EX-04",
+   "name": "版画",
+   "image": "assets/dataset/images/101-200/158.webp",
+   "sha1": "3b8e2a11fec9",
+   "source": "十、新增19款风格/158. 版画.jpg"
+  },
+  "159": {
+   "code": "EX-05",
+   "name": "古典",
+   "image": "assets/dataset/images/101-200/159.webp",
+   "sha1": "5293bb74a9e5",
+   "source": "十、新增19款风格/159. 古典.jpg"
+  },
+  "160": {
+   "code": "EX-06",
+   "name": "抽象",
+   "image": "assets/dataset/images/101-200/160.webp",
+   "sha1": "f0cbac5073ac",
+   "source": "十、新增19款风格/160. 抽象.jpg"
+  },
+  "161": {
+   "code": "EX-07",
+   "name": "荧光绘画",
+   "image": "assets/dataset/images/101-200/161.webp",
+   "sha1": "6f6cd21b253c",
+   "source": "十、新增19款风格/161. 荧光绘画.jpg"
+  },
+  "162": {
+   "code": "EX-08",
+   "name": "彩铅画",
+   "image": "assets/dataset/images/101-200/162.webp",
+   "sha1": "a8a98b9598cc",
+   "source": "十、新增19款风格/162. 彩铅画.jpg"
+  },
+  "163": {
+   "code": "EX-09",
+   "name": "锐笔插画",
+   "image": "assets/dataset/images/101-200/163.webp",
+   "sha1": "691367995ec0",
+   "source": "十、新增19款风格/163. 锐笔插画.jpg"
+  },
+  "164": {
+   "code": "EX-10",
+   "name": "油墨印刷",
+   "image": "assets/dataset/images/101-200/164.webp",
+   "sha1": "203dcc56daad",
+   "source": "十、新增19款风格/164. 油墨印刷.jpg"
+  },
+  "165": {
+   "code": "EX-11",
+   "name": "CG 动画",
+   "image": "assets/dataset/images/101-200/165.webp",
+   "sha1": "4fdf28bd4e5b",
+   "source": "十、新增19款风格/165. CG 动画.jpg"
+  },
+  "166": {
+   "code": "EX-12",
+   "name": "卡通",
+   "image": "assets/dataset/images/101-200/166.webp",
+   "sha1": "2271519cfdf6",
+   "source": "十、新增19款风格/166. 卡通.jpg"
+  },
+  "167": {
+   "code": "EX-13",
+   "name": "港风动漫",
+   "image": "assets/dataset/images/101-200/167.webp",
+   "sha1": "990a376ce333",
+   "source": "十、新增19款风格/167. 港风动漫.jpg"
+  },
+  "168": {
+   "code": "EX-14",
+   "name": "复古动漫",
+   "image": "assets/dataset/images/101-200/168.webp",
+   "sha1": "91a6e638b205",
+   "source": "十、新增19款风格/168. 复古动漫.jpg"
+  },
+  "169": {
+   "code": "EX-15",
+   "name": "儿童绘画",
+   "image": "assets/dataset/images/101-200/169.webp",
+   "sha1": "e69e6d034917",
+   "source": "十、新增19款风格/169. 儿童绘画.jpg"
+  },
+  "170": {
+   "code": "EX-16",
+   "name": "莫奈(印象派)",
+   "image": "assets/dataset/images/101-200/170.webp",
+   "sha1": "25f522d5b6df",
+   "source": "十、新增19款风格/170. 莫奈.jpg"
+  },
+  "171": {
+   "code": "EX-17",
+   "name": "毕加索",
+   "image": "assets/dataset/images/101-200/171.webp",
+   "sha1": "bcc296e4121d",
+   "source": "十、新增19款风格/171. 毕加索.jpg"
+  },
+  "172": {
+   "code": "EX-18",
+   "name": "伦勃朗",
+   "image": "assets/dataset/images/101-200/172.webp",
+   "sha1": "fbce90d47b38",
+   "source": "十、新增19款风格/172. 伦勃朗.jpg"
+  },
+  "173": {
+   "code": "EX-19",
+   "name": "马蒂斯",
+   "image": "assets/dataset/images/101-200/173.webp",
+   "sha1": "7151a5740ad4",
+   "source": "十、新增19款风格/173. 马蒂斯.jpg"
+  }
+ }
+}

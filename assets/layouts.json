@@ -1,0 +1,737 @@
+{
+ "version": 1,
+ "count": 54,
+ "note": "本目录为原创整理，仅借鉴「编号+家族+画幅+文字层级」的组织方式，条目名称与指令均为重写，未复制他库文本。",
+ "families": [
+  {
+   "code": "SM",
+   "name_zh": "社媒卡",
+   "name_en": "Social card",
+   "use": "小红书封面、朋友圈、公众号次图",
+   "count": 12
+  },
+  {
+   "code": "IG",
+   "name_zh": "信息图 / 长图",
+   "name_en": "Infographic",
+   "use": "公众号题图、知识科普长图、流程图解",
+   "count": 12
+  },
+  {
+   "code": "CM",
+   "name_zh": "漫画分镜",
+   "name_en": "Comic panel",
+   "use": "条漫、四格、故事分镜",
+   "count": 10
+  },
+  {
+   "code": "IP",
+   "name_zh": "IP 角色卡",
+   "name_en": "IP sheet",
+   "use": "角色设定、表情包、周边延展",
+   "count": 8
+  },
+  {
+   "code": "EC",
+   "name_zh": "电商图",
+   "name_en": "E-commerce",
+   "use": "主图、卖点图、详情页",
+   "count": 12
+  }
+ ],
+ "layouts": [
+  {
+   "id": "SM-01",
+   "family": "SM",
+   "name": "大标题压图",
+   "aspects": [
+    "3:4",
+    "9:16"
+   ],
+   "use": "爆款封面",
+   "prompt_zh": "标题压在上三分之一，主体落在中下，底部留 8% 安全区",
+   "prompt_en": "Big headline across the top third, subject in the lower middle, 8% safe margin at the bottom",
+   "density": "中"
+  },
+  {
+   "id": "SM-02",
+   "family": "SM",
+   "name": "上下分栏",
+   "aspects": [
+    "3:4",
+    "1:1"
+   ],
+   "use": "图文笔记",
+   "prompt_zh": "上 45% 主图，下 55% 标题与要点，中间一条细分隔线",
+   "prompt_en": "Top 45% image, bottom 55% title and bullets, one thin divider between",
+   "density": "中"
+  },
+  {
+   "id": "SM-03",
+   "family": "SM",
+   "name": "左文右图",
+   "aspects": [
+    "16:9",
+    "4:3"
+   ],
+   "use": "横版封面",
+   "prompt_zh": "左 40% 文字区左对齐，右 60% 画面",
+   "prompt_en": "Left 40% left-aligned text block, right 60% imagery",
+   "density": "低"
+  },
+  {
+   "id": "SM-04",
+   "family": "SM",
+   "name": "三宫格",
+   "aspects": [
+    "1:1",
+    "3:4"
+   ],
+   "use": "步骤或对比",
+   "prompt_zh": "三等分横向排列，每格一个独立小场景",
+   "prompt_en": "Three equal columns, one small scene per cell",
+   "density": "中"
+  },
+  {
+   "id": "SM-05",
+   "family": "SM",
+   "name": "九宫格封面",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "合集封面",
+   "prompt_zh": "3×3 网格，中心格为主视觉，八格为细节",
+   "prompt_en": "3x3 grid, hero in the center, details around",
+   "density": "高"
+  },
+  {
+   "id": "SM-06",
+   "family": "SM",
+   "name": "杂志封面",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "专题封面",
+   "prompt_zh": "顶部刊头横条，中部主视觉，左下角小字栏",
+   "prompt_en": "Masthead strip on top, hero image center, small caption column bottom-left",
+   "density": "中"
+  },
+  {
+   "id": "SM-07",
+   "family": "SM",
+   "name": "便签贴纸",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "种草笔记",
+   "prompt_zh": "主体居中，四周手写便签与箭头标注",
+   "prompt_en": "Centered subject, handwritten sticky notes and arrows around",
+   "density": "高"
+  },
+  {
+   "id": "SM-08",
+   "family": "SM",
+   "name": "对比卡",
+   "aspects": [
+    "1:1",
+    "4:3"
+   ],
+   "use": "前后对比",
+   "prompt_zh": "左右各半，中间竖分割线，两侧同构图不同状态",
+   "prompt_en": "Split in half with a vertical divider, same framing different states",
+   "density": "中"
+  },
+  {
+   "id": "SM-09",
+   "family": "SM",
+   "name": "清单卡",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "干货清单",
+   "prompt_zh": "标题在顶，下面三到五条竖排条目，每条前有编号",
+   "prompt_en": "Title on top, three to five numbered rows below",
+   "density": "高"
+  },
+  {
+   "id": "SM-10",
+   "family": "SM",
+   "name": "数据角标",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "成绩或价格",
+   "prompt_zh": "大数字压在角落，主视觉占满，注解小字贴数字下方",
+   "prompt_en": "Large number in a corner, full-bleed subject, small caption under it",
+   "density": "低"
+  },
+  {
+   "id": "SM-11",
+   "family": "SM",
+   "name": "相框留白",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "文艺排版",
+   "prompt_zh": "外围留白 12% 做纸边，中心嵌一张小图",
+   "prompt_en": "12% paper margin, one small image inset in the center",
+   "density": "低"
+  },
+  {
+   "id": "SM-12",
+   "family": "SM",
+   "name": "一句话图",
+   "aspects": [
+    "1:1",
+    "3:4"
+   ],
+   "use": "金句卡片",
+   "prompt_zh": "画面九成留白，一句话居中偏上，字号克制",
+   "prompt_en": "90% empty space, one line of text slightly above center",
+   "density": "低"
+  },
+  {
+   "id": "IG-01",
+   "family": "IG",
+   "name": "公众号题图",
+   "aspects": [
+    "16:9",
+    "2.35:1"
+   ],
+   "use": "公众号头图",
+   "prompt_zh": "左侧标题两行，右侧主体，横向宽幅构图",
+   "prompt_en": "Two-line title on the left, subject on the right, wide banner framing",
+   "density": "低"
+  },
+  {
+   "id": "IG-02",
+   "family": "IG",
+   "name": "方图题标",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "公众号小图",
+   "prompt_zh": "主体居中偏右，左上留文字块",
+   "prompt_en": "Subject right of center, text block at upper left",
+   "density": "低"
+  },
+  {
+   "id": "IG-03",
+   "family": "IG",
+   "name": "长图头图",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "长图起始屏",
+   "prompt_zh": "顶部大标题，中部主体，底部预告下一节",
+   "prompt_en": "Large title on top, subject in the middle, teaser at the bottom",
+   "density": "中"
+  },
+  {
+   "id": "IG-04",
+   "family": "IG",
+   "name": "步骤纵列",
+   "aspects": [
+    "9:16"
+   ],
+   "use": "教程步骤",
+   "prompt_zh": "四步纵向排列，步骤间箭头连接，每步一行说明",
+   "prompt_en": "Four steps stacked vertically, arrows between, one caption per step",
+   "density": "高"
+  },
+  {
+   "id": "IG-05",
+   "family": "IG",
+   "name": "时间轴",
+   "aspects": [
+    "9:16"
+   ],
+   "use": "发展历程",
+   "prompt_zh": "中轴竖线，节点左右交替，节点配短标签",
+   "prompt_en": "Vertical axis line, alternating nodes with short labels",
+   "density": "中"
+  },
+  {
+   "id": "IG-06",
+   "family": "IG",
+   "name": "对比矩阵",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "方案对比",
+   "prompt_zh": "两列多行表格，表头用色块区分",
+   "prompt_en": "Multi-row two-column table with colored headers",
+   "density": "高"
+  },
+  {
+   "id": "IG-07",
+   "family": "IG",
+   "name": "金字塔",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "层级结构",
+   "prompt_zh": "三层梯形堆叠，底层最宽，逐层文字减少",
+   "prompt_en": "Three stacked tiers, widest at the bottom, less text upward",
+   "density": "中"
+  },
+  {
+   "id": "IG-08",
+   "family": "IG",
+   "name": "环形循环",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "循环流程",
+   "prompt_zh": "中心图标，外圈四到六段弧，顺时针编号",
+   "prompt_en": "Central icon, four to six arcs clockwise around it",
+   "density": "中"
+  },
+  {
+   "id": "IG-09",
+   "family": "IG",
+   "name": "树状分支",
+   "aspects": [
+    "16:9"
+   ],
+   "use": "分类拆解",
+   "prompt_zh": "左根节点，右侧分三支，连线清晰",
+   "prompt_en": "Root node on the left branching into three",
+   "density": "中"
+  },
+  {
+   "id": "IG-10",
+   "family": "IG",
+   "name": "数字阵列",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "数据总结",
+   "prompt_zh": "2×3 数据卡，每卡一个大数字与一行注解",
+   "prompt_en": "2x3 data cards, one big number and one caption each",
+   "density": "高"
+  },
+  {
+   "id": "IG-11",
+   "family": "IG",
+   "name": "路径地图",
+   "aspects": [
+    "16:9"
+   ],
+   "use": "路线或攻略",
+   "prompt_zh": "一条路线贯穿画面，节点带图标与地名",
+   "prompt_en": "One route across the frame with icon nodes and place names",
+   "density": "中"
+  },
+  {
+   "id": "IG-12",
+   "family": "IG",
+   "name": "长图拼版",
+   "aspects": [
+    "9:16"
+   ],
+   "use": "多屏连载",
+   "prompt_zh": "多屏连续，每屏一个论点，屏间用色带过渡",
+   "prompt_en": "Multiple screens, one argument each, color band transitions",
+   "density": "高"
+  },
+  {
+   "id": "CM-01",
+   "family": "CM",
+   "name": "四格等分",
+   "aspects": [
+    "1:1",
+    "4:3"
+   ],
+   "use": "四格漫画",
+   "prompt_zh": "2×2 等分，阅读顺序左上到右下",
+   "prompt_en": "2x2 equal panels, reading order top-left to bottom-right",
+   "density": "中"
+  },
+  {
+   "id": "CM-02",
+   "family": "CM",
+   "name": "六格",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "故事推进",
+   "prompt_zh": "两列三行，格间距一致",
+   "prompt_en": "Two columns by three rows, even gutters",
+   "density": "高"
+  },
+  {
+   "id": "CM-03",
+   "family": "CM",
+   "name": "主格副格",
+   "aspects": [
+    "16:9"
+   ],
+   "use": "重点场景",
+   "prompt_zh": "左侧大格占三分之二，右侧两小格竖排",
+   "prompt_en": "Large panel on the left taking two thirds, two small panels stacked right",
+   "density": "中"
+  },
+  {
+   "id": "CM-04",
+   "family": "CM",
+   "name": "条漫",
+   "aspects": [
+    "9:16"
+   ],
+   "use": "手机竖读",
+   "prompt_zh": "单列纵向长条，每屏一个节拍",
+   "prompt_en": "Single vertical column, one beat per screen",
+   "density": "低"
+  },
+  {
+   "id": "CM-05",
+   "family": "CM",
+   "name": "斜切",
+   "aspects": [
+    "16:9"
+   ],
+   "use": "冲突场面",
+   "prompt_zh": "对角线分割，两格斜向咬合",
+   "prompt_en": "Diagonal split, two panels interlocking",
+   "density": "中"
+  },
+  {
+   "id": "CM-06",
+   "family": "CM",
+   "name": "无框融接",
+   "aspects": [
+    "16:9"
+   ],
+   "use": "氛围叙事",
+   "prompt_zh": "取消边框，画面连贯，用明暗区分场景",
+   "prompt_en": "No borders, continuous image, scenes separated by light and shadow",
+   "density": "低"
+  },
+  {
+   "id": "CM-07",
+   "family": "CM",
+   "name": "对白位",
+   "aspects": [
+    "4:3"
+   ],
+   "use": "对话场景",
+   "prompt_zh": "人物上半身居中，上方与右侧预留气泡空白",
+   "prompt_en": "Upper-body figures centered, empty space above and right for balloons",
+   "density": "中"
+  },
+  {
+   "id": "CM-08",
+   "family": "CM",
+   "name": "宽幅三连",
+   "aspects": [
+    "21:9"
+   ],
+   "use": "电影感分镜",
+   "prompt_zh": "三格等高横排，电影比例",
+   "prompt_en": "Three equal wide panels in a row, cinematic ratio",
+   "density": "中"
+  },
+  {
+   "id": "CM-09",
+   "family": "CM",
+   "name": "特写插入",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "情绪放大",
+   "prompt_zh": "主格加一个圆形局部特写插格",
+   "prompt_en": "Main panel plus one circular detail inset",
+   "density": "中"
+  },
+  {
+   "id": "CM-10",
+   "family": "CM",
+   "name": "回忆格",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "闪回段落",
+   "prompt_zh": "整格降饱和加柔边，与现时画面区分",
+   "prompt_en": "Desaturated soft-edged panel to separate flashbacks",
+   "density": "中"
+  },
+  {
+   "id": "IP-01",
+   "family": "IP",
+   "name": "三视图",
+   "aspects": [
+    "16:9"
+   ],
+   "use": "角色设定",
+   "prompt_zh": "正面侧面背面并列，等高对齐",
+   "prompt_en": "Front, side and back views side by side, equal height",
+   "density": "中"
+  },
+  {
+   "id": "IP-02",
+   "family": "IP",
+   "name": "表情九宫格",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "表情包",
+   "prompt_zh": "3×3 同一角色九种表情",
+   "prompt_en": "3x3 grid, nine expressions of one character",
+   "density": "高"
+  },
+  {
+   "id": "IP-03",
+   "family": "IP",
+   "name": "角色卡",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "角色档案",
+   "prompt_zh": "上半身立绘占三分之二，下方姓名与三条属性",
+   "prompt_en": "Bust portrait taking two thirds, name and three attributes below",
+   "density": "中"
+  },
+  {
+   "id": "IP-04",
+   "family": "IP",
+   "name": "姿态集",
+   "aspects": [
+    "16:9"
+   ],
+   "use": "动作参考",
+   "prompt_zh": "四个动作并列，统一光照与比例",
+   "prompt_en": "Four poses in a row with consistent lighting and scale",
+   "density": "中"
+  },
+  {
+   "id": "IP-05",
+   "family": "IP",
+   "name": "服饰拆解",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "设定细节",
+   "prompt_zh": "角色居中，四周拉出配件小图与引线",
+   "prompt_en": "Character centered, accessory callouts with leader lines",
+   "density": "高"
+  },
+  {
+   "id": "IP-06",
+   "family": "IP",
+   "name": "配色板",
+   "aspects": [
+    "16:9"
+   ],
+   "use": "色彩规范",
+   "prompt_zh": "角色小图在左，右侧五格色卡与比例条",
+   "prompt_en": "Small character on the left, five color chips and a ratio bar on the right",
+   "density": "中"
+  },
+  {
+   "id": "IP-07",
+   "family": "IP",
+   "name": "场景应用",
+   "aspects": [
+    "16:9"
+   ],
+   "use": "落地展示",
+   "prompt_zh": "角色置于环境中，占画面三分之一",
+   "prompt_en": "Character placed in an environment, about one third of the frame",
+   "density": "低"
+  },
+  {
+   "id": "IP-08",
+   "family": "IP",
+   "name": "周边延展",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "衍生品",
+   "prompt_zh": "角色居中，四周环绕贴纸徽章玩偶",
+   "prompt_en": "Character centered, stickers badges and plush around",
+   "density": "高"
+  },
+  {
+   "id": "EC-01",
+   "family": "EC",
+   "name": "白底主图",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "平台主图",
+   "prompt_zh": "纯白背景，产品 45 度悬浮，投影极淡",
+   "prompt_en": "Pure white background, product floating at 45 degrees, faint shadow",
+   "density": "低"
+  },
+  {
+   "id": "EC-02",
+   "family": "EC",
+   "name": "场景主图",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "种草主图",
+   "prompt_zh": "产品置于使用场景，环境虚化",
+   "prompt_en": "Product in a real use scene, blurred environment",
+   "density": "低"
+  },
+  {
+   "id": "EC-03",
+   "family": "EC",
+   "name": "卖点三宫格",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "卖点提炼",
+   "prompt_zh": "上方产品，下方三格卖点图标加短句",
+   "prompt_en": "Product on top, three benefit cells with icons below",
+   "density": "高"
+  },
+  {
+   "id": "EC-04",
+   "family": "EC",
+   "name": "参数详情",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "详情页",
+   "prompt_zh": "左图右参数表，行距统一",
+   "prompt_en": "Image left, spec table right, even row spacing",
+   "density": "高"
+  },
+  {
+   "id": "EC-05",
+   "family": "EC",
+   "name": "对比图",
+   "aspects": [
+    "4:3"
+   ],
+   "use": "效果对比",
+   "prompt_zh": "左右同构图，标前后",
+   "prompt_en": "Same framing left and right, labeled before and after",
+   "density": "中"
+  },
+  {
+   "id": "EC-06",
+   "family": "EC",
+   "name": "尺寸标注",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "尺寸说明",
+   "prompt_zh": "产品正视，四周标注线与数字",
+   "prompt_en": "Product front view with dimension lines and numbers",
+   "density": "中"
+  },
+  {
+   "id": "EC-07",
+   "family": "EC",
+   "name": "材质特写",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "质感呈现",
+   "prompt_zh": "微距局部，纹理占满画面",
+   "prompt_en": "Macro detail with texture filling the frame",
+   "density": "低"
+  },
+  {
+   "id": "EC-08",
+   "family": "EC",
+   "name": "使用步骤",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "操作说明",
+   "prompt_zh": "三步纵向，每步一张小图加一句",
+   "prompt_en": "Three vertical steps, one small image and one line each",
+   "density": "高"
+  },
+  {
+   "id": "EC-09",
+   "family": "EC",
+   "name": "套装组合",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "组合销售",
+   "prompt_zh": "主件居中，配件环绕排列",
+   "prompt_en": "Main item centered with accessories arranged around",
+   "density": "中"
+  },
+  {
+   "id": "EC-10",
+   "family": "EC",
+   "name": "促销角标",
+   "aspects": [
+    "1:1"
+   ],
+   "use": "活动价",
+   "prompt_zh": "主图占满，右上角留价格与折扣位",
+   "prompt_en": "Full-bleed product, price and discount slot at upper right",
+   "density": "低"
+  },
+  {
+   "id": "EC-11",
+   "family": "EC",
+   "name": "包装展示",
+   "aspects": [
+    "3:4"
+   ],
+   "use": "礼盒呈现",
+   "prompt_zh": "产品与外包装并列，包装略后",
+   "prompt_en": "Product beside its packaging, packaging slightly behind",
+   "density": "中"
+  },
+  {
+   "id": "EC-12",
+   "family": "EC",
+   "name": "详情长图",
+   "aspects": [
+    "9:16"
+   ],
+   "use": "完整详情",
+   "prompt_zh": "多屏连续，屏间统一页边",
+   "prompt_en": "Multiple screens with consistent margins",
+   "density": "高"
+  }
+ ],
+ "scene_map": {
+  "小红书/爆款/封面/朋友圈/笔记": [
+   "SM-01",
+   "SM-02",
+   "SM-09",
+   "SM-12"
+  ],
+  "公众号/题图/头图/文章": [
+   "IG-01",
+   "IG-02",
+   "IG-03"
+  ],
+  "长图/科普/知识/信息图/教程": [
+   "IG-03",
+   "IG-04",
+   "IG-06",
+   "IG-10",
+   "IG-12"
+  ],
+  "分镜/条漫/漫画/故事": [
+   "CM-04",
+   "CM-01",
+   "CM-03"
+  ],
+  "IP/角色/表情/周边/设定": [
+   "IP-01",
+   "IP-03",
+   "IP-02",
+   "IP-08"
+  ],
+  "电商/主图/详情/卖点/产品": [
+   "EC-01",
+   "EC-02",
+   "EC-03",
+   "EC-04"
+  ]
+ }
+}
