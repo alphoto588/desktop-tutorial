@@ -4,9 +4,7 @@ slug: vision-style-prompt
 displayName: 视觉美学风格提示词架构师
 displayName_en: Visual Aesthetic Prompt Architect
 version: 1.9.0
-summary: >-
-  173 种视觉美学风格、54 个排版图型、36 个主题色，按 17 个开源生图模型的语法分别渲染，
-  只输出中英双语提示词正文。
+summary: 173 种视觉美学风格 × 54 个排版图型 × 36 个主题色，按 17 个开源生图模型（Z-Image / FLUX.2-klein / Krea 2 / Qwen-Image 系列 / MOSS-Image / Fibo 等）的语法分别渲染，只输出中英双语提示词正文。适用于 ComfyUI，含成品检查与图文画廊。
 description: >-
   带需求澄清与 17 模型适配的文生图提示词生成器，只输出中英双语提示词正文。
   当用户要做国风、日系、赛博、胶片、插画等风格的图，需要提示词、说不清想要什么风格、
