@@ -103,7 +103,7 @@ def main() -> None:
     print(f"原图目录：{src}\n扫描到 {len(found)} 张，样式表 {len(styles)} 条")
 
     (OUT / "images").mkdir(parents=True, exist_ok=True)
-    (OUT / "_grid").mkdir(parents=True, exist_ok=True)
+    (OUT / "grid").mkdir(parents=True, exist_ok=True)
 
     manifest, refmap, missing = [], {}, []
     by_cat: dict[str, list[Path]] = {}
@@ -150,7 +150,7 @@ def main() -> None:
                 x = (i % COLS) * TILE + (TILE - im.width) // 2
                 y = (i // COLS) * TILE + (TILE - im.height) // 2
                 sheet.paste(im, (x, y))
-        sheet.save(OUT / "_grid" / f"{code}.webp", "WEBP", quality=70, method=6)
+        sheet.save(OUT / "grid" / f"{code}.webp", "WEBP", quality=70, method=6)
 
     with (OUT / "manifest.jsonl").open("w", encoding="utf-8") as fh:
         for rec in manifest:

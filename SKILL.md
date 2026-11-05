@@ -2,15 +2,27 @@
 name: vision-style-prompt
 slug: vision-style-prompt
 displayName: 视觉美学风格提示词架构师
-summary: 173 种视觉美学风格、54 个排版图型、36 个主题色，按 17 个开源生图模型的语法分别渲染，只输出中英双语提示词正文。
-display_name: 视觉美学风格提示词架构师
-display_name_en: Visual Aesthetic Prompt Architect
-description_zh: 先问清「主体 / 风格 / 场景 / 目标模型 / 关键参数」，再从 173 种视觉美学风格、54 种排版图型、36 个主题色中检索并组装 AI 生图提示词，按 Z-Image、FLUX.2-klein、FLUX.1、Krea 2、Qwen-Image 系列、MOSS-Image、Fibo 这 17 个开源模型的语法与偏好分别渲染，交付时只输出提示词正文（中文一段、英文一段），不夹带解释；模型接法与许可属于过程信息，用户追问时才给。用于把「高级感」「日系干净」翻译成具体风格、按维度混搭两个风格、检查叠加冲突、体检主体句、批量保持一致性。不适用于版式排版、UI 界面、三维建模图纸、视频运镜，以及纯艺术史概念科普。
-description_en: Collect subject, style, use case, target model, and key parameters first; then assemble prompts from 173 visual aesthetic styles, rendered per-model for 17 open models (Z-Image, FLUX.2-klein, FLUX.1, Krea 2, Qwen-Image series, MOSS-Image, Fibo), delivered as prompt body only: one Chinese block, one English block, no commentary. Use case, target model, and key parameters are confirmed before generation. Not for layout design, UI work, 3D modeling specs, or video direction.
-description: 带需求澄清与 17 模型适配的文生图提示词生成器，只输出中英双语提示词正文。当用户要做国风/日系/赛博/胶片/插画等风格的图、需要提示词、说不清想要什么风格、要改一段现成提示词、要一次做一组同风格图，或需要做小红书封面、公众号题图、知识科普长图、电商主图、漫画分镜等版式时使用；也支持指定 Z-Image / FLUX.2-klein / FLUX.1 / Krea 2 / Qwen-Image 系列 / MOSS-Image / FireRed / Fibo 等模型。会先确认主体、风格、场景与关键参数，信息不足时不直接出稿。
+displayName_en: Visual Aesthetic Prompt Architect
 version: 1.9.0
+summary: >-
+  173 种视觉美学风格、54 个排版图型、36 个主题色，按 17 个开源生图模型的语法分别渲染，
+  只输出中英双语提示词正文。
+description: >-
+  带需求澄清与 17 模型适配的文生图提示词生成器，只输出中英双语提示词正文。
+  当用户要做国风、日系、赛博、胶片、插画等风格的图，需要提示词、说不清想要什么风格、
+  要改一段现成提示词、要一次做一组同风格图，或需要做小红书封面、公众号题图、
+  知识科普长图、电商主图、漫画分镜等版式时使用。
+  会先确认主体、风格、场景与关键参数，信息不足时不直接出稿。
+description_en: >-
+  A prompt generator for text-to-image models with a mandatory intake step and
+  per-model adaptation. Collects subject, style, use case, target model and key
+  parameters first, then assembles bilingual prompt bodies only. Supports 17 open
+  models including Z-Image, FLUX.2-klein, FLUX.1, Krea 2, Qwen-Image series,
+  MOSS-Image and Fibo. Not for layout design, UI work, 3D modeling specs, or
+  video direction.
 author: 爱折腾的摄影大叔（lovephoto588）
-license: MIT（代码） / CC BY 4.0（内容，需署名）
+license: MIT
+licenseNote: 内容（风格文本、排版图型、配色与文档）按 CC BY 4.0，需署名
 ---
 
 # 视觉美学风格提示词架构师

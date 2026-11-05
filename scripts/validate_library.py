@@ -314,6 +314,32 @@ def main() -> None:
             if not re.match(r"^#[0-9A-Fa-f]{6}$", c["hex"]):
                 err(f"{c['id']} 色值格式非法：{c['hex']}")
 
+    # 11 SKILL.md frontmatter（平台发布要求 name + description 可被 YAML 解析）
+    sk = ROOT / "SKILL.md"
+    if sk.exists():
+        raw = sk.read_text(encoding="utf-8")
+        m = re.match(r"^---\n(.*?)\n---\n", raw, re.S)
+        if not m:
+            err("SKILL.md 缺 YAML frontmatter（首行 --- 包裹）")
+        else:
+            fm = m.group(1)
+            for key in ("name", "description"):
+                if not re.search(rf"^{key}:", fm, re.M):
+                    err(f"SKILL.md frontmatter 缺 {key}")
+            try:
+                import yaml
+                d = yaml.safe_load(fm)
+                if not isinstance(d, dict):
+                    err("frontmatter 不是合法 YAML 映射")
+                else:
+                    for key in ("name", "description"):
+                        if not str(d.get(key) or "").strip():
+                            err(f"frontmatter 的 {key} 为空")
+            except ImportError:
+                warns.append("未安装 PyYAML，frontmatter 仅做结构检查（pip install pyyaml 可开启严格校验）")
+            except Exception as exc:
+                err(f"frontmatter YAML 解析失败：{exc}")
+
     # 打分
     score = max(0, 100 - len(errors) * 8 - min(len(warns), 10) * 1)
     print(f"条目 {len(styles)} / 分类 {len(db['categories'])} / 宽泛标记 {broad} / 在世艺术家 {living}")

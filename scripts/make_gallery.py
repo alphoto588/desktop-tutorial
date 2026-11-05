@@ -228,7 +228,7 @@ def main() -> None:
 
     sheets = {}
     for code in CAT_ORDER:
-        p = ROOT / "assets" / "dataset" / "_grid" / f"{code}.webp"
+        p = ROOT / "assets" / "dataset" / "grid" / f"{code}.webp"
         if p.exists():
             sheets[code] = {"name": cat_names.get(code, code),
                             "img": p.relative_to(ROOT / "assets").as_posix()}
