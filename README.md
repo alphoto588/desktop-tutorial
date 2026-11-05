@@ -51,6 +51,7 @@
 |---|---|
 | **173 种风格库** | 10 大类：中国古典 37、日本东亚 12、世界区域 12、西方流派 28、数字科幻 19、摄影光影 11、插画动画 19、色彩调性 13、亚文化 3、题材补位 19 |
 | **需求澄清门禁** | 先确认主体、风格、场景、目标模型、关键参数；信息不足不直接出稿，模型未指定时列出 17 项等你选 |
+| **一句话出稿** | 只有一个想法时跑 `scripts/quick.py`：从一句话里认模型、比例、排版号、色名、场景，自动选风格并跑一遍成品自检，一步拿到草稿 |
 | **17 个开源模型适配** | 语法、负向策略、步数、尺寸规则按模型重算，不是换个名字 |
 | **中英双语正文** | 中文留档、英文投喂；两版段落一一对应，按同一模型语法分别渲染 |
 | **参考图隔离** | `--with-ref` 自动追加隔离句：只提取线条、笔触、媒介、色彩、光影，不搬主体与构图 |
@@ -103,6 +104,21 @@ git clone https://github.com/lovephoto588/MYTX-vision-style-prompt.git
 本技能不绑定任何客户端：它就是一组 Python 脚本 + Markdown + 数据文件，放到任意目录都能跑，脚本按自身位置定位资源。
 
 ## 使用方法
+
+### 0. 一句话出稿（最快）
+
+只有一个想法、不想先填清单：
+
+```bash
+python scripts/quick.py "国潮茶叶电商主图，用 Qwen-Image，3:4"
+python scripts/quick.py "赛博朋克雨夜街头" --model flux2-klein-base-9b
+python scripts/quick.py "一只青瓷茶壶" --style CN-01 --layout SM-01 --color 月白
+python scripts/quick.py --list-models          # 看全部 17 个模型
+```
+
+一句话里能认的东西：模型名（含 `Flux.2-klein-9B` 这种带点带横线的写法）、比例 `3:4`、排版号 `SM-01`、主题色名、使用场景。认完自动选一条风格，组装后跑一遍成品自检，一次打印提示词 + 配置 + 自检结论。
+
+这是**草稿通道**：模型缺省 Z-Image-Turbo，风格认不出时退到字面撞库、再退到极简主义，都会在输出里明说。正式交付仍要走下面第 1 步确认模型与风格，再用 `--model` / `--style` 锁定复跑。
 
 ### 1. 先说要什么，再出稿
 
@@ -234,7 +250,7 @@ vision-style-prompt/
 │   └── dataset/
 │       ├── images/001-100/…    480px WebP 缩略图
 │       ├── images/101-200/…
-│       ├── _grid/{CAT}.webp    每类拼版
+│       ├── grid/{CAT}.webp     每类拼版（GitHub Pages 上以 grid 对外，勿改回 _grid）
 │       └── manifest.jsonl      一行一条：七维特征 + 模板 + 图片 + 出处
 ├── references/
 │   ├── models.md               模型手册与 ComfyUI 速查
@@ -254,6 +270,7 @@ vision-style-prompt/
 │   └── style-anchors.md        24 条库外参照（只写可观察特征）
 ├── docs/images/                README 配图
 └── scripts/
+    ├── quick.py                一句话出稿（草稿通道，自动识别 + 就地自检）
     ├── intake.py               需求采集与体检
     ├── build_prompt.py         组装（--model / --brief / --bare / --with-ref）
     ├── batch_prompt.py         批量与一致性哈希

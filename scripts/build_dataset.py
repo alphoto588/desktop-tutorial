@@ -3,7 +3,7 @@
 
 产物（全部落在 assets/dataset/）：
     images/{bucket}/{id}.webp     缩略图，按 100 张分桶（001-100 / 101-200）
-    _grid/{code}.webp             每个大类的拼版大图，快速扫一眼用
+    grid/{code}.webp              每个大类的拼版大图，快速扫一眼用
     manifest.jsonl                一行一条：编号、名称、七维特征、模板、图片路径、校验值
     README.md                     字段说明与扩充方法
 

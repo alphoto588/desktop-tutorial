@@ -3,7 +3,7 @@ name: vision-style-prompt
 slug: vision-style-prompt
 displayName: 视觉美学风格提示词架构师
 displayName_en: Visual Aesthetic Prompt Architect
-version: 1.9.0
+version: 1.9.1
 summary: 173 种视觉美学风格 × 54 个排版图型 × 36 个主题色，按 17 个开源生图模型（Z-Image / FLUX.2-klein / Krea 2 / Qwen-Image 系列 / MOSS-Image / Fibo 等）的语法分别渲染，只输出中英双语提示词正文。适用于 ComfyUI，含成品检查与图文画廊。
 description: >-
   带需求澄清与 17 模型适配的文生图提示词生成器，只输出中英双语提示词正文。
@@ -31,6 +31,22 @@ licenseNote: 内容（风格文本、排版图型、配色与文档）按 CC BY 
 
 判断是否该接这个活：用户要的是"画面该长什么样"。如果他要的是版式布局、界面设计、建模图纸、视频运镜，直接说明不在范围内（理由见 `references/prompt-craft.md` 第七节）。
 
+## 30 秒上手（只有一个想法时走这条）
+
+一句话出稿，不用先填清单：
+
+```bash
+python3 scripts/quick.py "国潮茶叶电商主图，用 Qwen-Image，3:4"
+python3 scripts/quick.py "赛博朋克雨夜街头" --model flux2-klein-base-9b
+python3 scripts/quick.py "一只青瓷茶壶" --style CN-01 --layout SM-01 --color 月白
+```
+
+它会从这句话里认模型、比例、排版号、色名、场景，自动挑一条风格，组装后跑一遍成品自检，一次打印提示词 + 配置 + 自检结论。
+
+- **这是草稿通道**：模型缺省用 Z-Image-Turbo，风格认不出时退到字面撞库、再退到极简主义。正式交付要按第 0 步确认模型与风格，再用 `--model` / `--style` 锁定复跑一遍。
+- 认不准就会明说（"没读懂画风，先用 DG-01 起稿"），不会假装确定。
+- 参数全已知、只想要成稿时，仍建议走下面第 0–7 步；一次要做一组图走第 6 步。
+
 ## 工作流
 
 ### 第 0 步 · 需求澄清（硬门禁）
@@ -44,7 +60,7 @@ licenseNote: 内容（风格文本、排版图型、配色与文档）按 CC BY 
 | 主体内容 | 是 | 谁/什么 + 动作或状态 + 环境与光向 | 模型补成最俗套的版本 |
 | 画面风格 | 是 | 风格名，或 2–3 个感受词 | 风格段无从选择 |
 | 使用场景 | 是 | 电商主图/社交配图/海报封面/品牌物料/绘本插画/概念设计/人像写真/个人练习 | 比例、是否带字、风格收敛度全错 |
-| 目标模型 | 是 | 从 17 个可选模型里选一个（清单见第 4 步表格）；不接受"不确定""你看着办" | 语法、负向、参数全错 |
+| 目标模型 | 是 | 从 17 个可选模型里选一个（清单见第 4 步表格）；不接受"不确定""你看着办"。**交付前必须落到具体模型**；`quick.py` 只给草稿默认值 | 语法、负向、参数全错 |
 | 关键参数 | 看模型 | 比例、图内文字、透明底、变体 | 参数不合法，出图白跑 |
 
 ```bash
@@ -313,6 +329,7 @@ python3 scripts/build_prompt.py --brief brief.json --model <模型> --en-map en.
 | `assets/living-names.json` | 姓名净化判据（23 人 + 可直接照抄的 `features`）；`scripts/name_guard.py` 负责加载与扫描，体检与 lint 共用 |
 | `references/recipes.md` | 用户给的场景属于常见商业需求（茶器、国潮、人像、美食、绘本…）时，先看有没有现成配方 |
 | `scripts/intake.py` | 第 0 步：打印问题、生成清单、体检充分度 |
+| `scripts/quick.py` | 草稿通道：一句话出稿，自动认模型/比例/排版/色名，组装后就地自检；`--list-models` 看模型清单 |
 | `scripts/find_style.py` | 任何检索动作 |
 | `scripts/build_prompt.py` | 任何组装动作（`--model` 决定语法，`--brief` 走清单门禁） |
 | `scripts/model_registry.py` / `scripts/model_render.py` | 档案的加载、校验与预算读取（`--list` / `--validate`）；四种渲染器的实现，只有新增语法体系时才要动 |
