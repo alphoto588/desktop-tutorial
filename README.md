@@ -90,30 +90,17 @@
 
 **环境要求**：Python 3.9+（仅用标准库）；只有重建图片数据集时需要 `Pillow`。
 
-**方式一：用户级（所有项目可用）**
+**方式一：GitHub 克隆**
 
 ```bash
-git clone <repo> vision-style-prompt
-mkdir -p ~/agent-skills && mv vision-style-prompt ~/agent-skills/
+git clone https://github.com/lovephoto588/MYTX-vision-style-prompt.git
 ```
 
-Windows 用户把目录放到 `%USERPROFILE%\agent-skills\` 即可。
+**方式二：zip 文件下载**
 
-**方式二：项目级（随项目走）**
-
-```bash
-mkdir -p your-project/.agent/skills
-unzip vision-style-prompt.zip -d your-project/.agent/skills/
-```
+- 直接下载 **zip**，解压后放到本地，供 AI 调用。
 
 本技能不绑定任何客户端：它就是一组 Python 脚本 + Markdown + 数据文件，放到任意目录都能跑，脚本按自身位置定位资源。
-
-装完确认：
-
-```bash
-cd ~/agent-skills/vision-style-prompt
-python scripts/validate_library.py     # 应输出：错误 0 / 得分 100 / 结论：通过
-```
 
 ## 使用方法
 
