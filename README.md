@@ -413,7 +413,7 @@ python scripts/stamp_author.py --check
 
 ```
 提示词风格库 by 爱折腾的摄影大叔（lovephoto588）
-https://github.com/<your-repo>
+https://github.com/lovephoto588/MYTX-vision-style-prompt
 ```
 
 内部系统不方便公开展示时，在文档或关于页写一行即可。参考图片除外——它们不随本项目授权。
