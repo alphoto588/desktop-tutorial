@@ -100,14 +100,14 @@ def check_subject(subject: str, styles: list[dict]) -> dict:
     text = subject.strip()
     n = len(text)
 
-    if n < 10:
+    if n < 40:
         score -= 15
-        issues.append({"tag": "过短", "hit": f"{n} 字", "why": "模型会自行补全，通常补成最俗套的版本",
-                       "fix": "补上摆放面、陪体与一条环境线索，控制在 20–60 字"})
-    elif n > 120:
+        issues.append({"tag": "过短", "hit": f"{n} 字", "why": "成稿只有模型预算的三到五成，细节全靠模型猜，通常补成最俗套的版本",
+                       "fix": "补上摆放面、陪体、背景与光向，做到 60–100 字（库内范例中位 89 字）"})
+    elif n > 150:
         score -= 10
         issues.append({"tag": "过长", "hit": f"{n} 字", "why": "挤占风格段的注意力，风格还原度会下降",
-                       "fix": "删掉解释性从句，压到 60 字以内"})
+                       "fix": "删掉解释性从句，压到 100 字以内"})
 
     hits = [s for s in styles
             if s["id"] not in SUBJECT_NAME_EXEMPT and s["name"] in text]
@@ -581,6 +581,14 @@ def main() -> None:
         print(f"      → {issue['fix']}")
     for tip in sc["tips"]:
         print(f"  [i] {tip['tag']}：{tip['fix']}")
+
+    # 篇幅达成率：风格段是常量（全库中位 51 字），成稿短基本都是主体短
+    bud = model["budget"]["zh"]
+    n_prompt = len([c for c in detail["prompt"] if c.strip()])
+    if bud.get("min"):
+        pct = int(n_prompt * 100 / bud["min"])
+        tail = "" if pct >= 60 else "  ← 低于六成，先把主体补到 60–100 字"
+        print(f"\n【篇幅】{n_prompt} 字 / {model['label']} 预算 {bud['min']}–{bud['max']}（{pct}%）{tail}")
 
     print(f"\n【模型适配】{detail['model_label']}（renderer: {detail['renderer']}）")
     for a in detail["adaptations"]:

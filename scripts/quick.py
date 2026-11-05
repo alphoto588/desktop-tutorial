@@ -14,6 +14,7 @@
     python3 scripts/quick.py "一只青瓷茶壶" --style CN-01 --layout SM-01 --color 月白
     python3 scripts/quick.py "..." --json        # 机器可读
     python3 scripts/quick.py --list-models       # 看全部可用模型
+    python3 scripts/quick.py "..." --concise     # 明确要短稿，不打印篇幅体检
 
 只写一句话也能出稿：模型缺省用 Z-Image-Turbo（最通用的起点），
 风格按需求文本自动推荐，比例用模型的默认比例。
@@ -23,6 +24,7 @@
 from __future__ import annotations
 
 import argparse
+import difflib
 import json
 import re
 import subprocess
@@ -63,6 +65,55 @@ def fallback_style(text: str) -> dict | None:
                 if gram in s["name"] + "".join(s["aliases"]):
                     return s
     return None
+
+
+def zh_len(text: str) -> int:
+    return len([c for c in text if c.strip()])
+
+
+def sample_subject(style: dict) -> str:
+    """取该风格范例里「主体」那一段（风格段之前的部分），当扩写范本。
+
+    库里 173 条 sample 都是「主体 89 字（中位）+ 风格 51 字」的形态，
+    拿它当尺子最省事：不用另编标准，照抄结构即可。
+    """
+    sm = (style.get("sample") or "").strip()
+    # 范例 = 主体 + 风格段，但风格段的手写版与拆解版常有几字出入，
+    # 逐段 find 不可靠（42/173 条会切错）。改用最长公共块定位风格段起点。
+    tail = "，".join(s["text"] for s in style.get("segments", []) if s.get("text"))
+    if sm and tail:
+        m = difflib.SequenceMatcher(None, sm, tail).find_longest_match(0, len(sm), 0, len(tail))
+        if m.size >= 12 and m.a > 10:
+            return sm[:m.a].rstrip("，。、 ")
+    return sm
+
+
+# 五类场景骨架（与 references/subject-craft.md 第二节一致）
+SKELETONS = {
+    "静物": ("主体 + 摆放面 + 陪体 + 背景 + 光向",
+             "补上摆放面、陪体、背景与光向，做到 60–100 字",
+             ("壶", "杯", "瓶", "罐", "盘", "花", "茶", "果", "器", "物", "书", "鞋", "表")),
+    "人像": ("人物状态 + 衣着 + 姿态朝向 + 视线 + 光位",
+             "补上衣着、姿态朝向、视线与光位，做到 60–100 字",
+             ("人", "女", "男", "少女", "老人", "肖像", "写真", "模特", "孩")),
+    "空间": ("空间类型 + 主家具 + 材质 + 开窗关系 + 时间",
+             "补上主家具、材质、开窗关系与时间，做到 60–100 字",
+             ("室", "厅", "房间", "屋", "店", "厨", "廊", "院子", "窗")),
+    "风景": ("前中远三层 + 天气 + 时间 + 光线角度",
+             "补上前中远三层、天气与光线角度，做到 60–100 字",
+             ("山", "海", "云", "林", "湖", "雪", "河", "草原", "日落", "天")),
+    "叙事": ("谁 + 在做什么 + 关键道具 + 环境暗示",
+             "补上在做什么、关键道具与环境暗示，做到 60–100 字",
+             ("正", "正在", "手", "站", "坐", "走", "背对", "回望")),
+}
+
+
+def guess_skeleton(subject: str) -> tuple[str, str, str]:
+    """按主体用词猜场景类型，返回 (类型, 骨架, 补法)。"""
+    for name, (shape, fix, kws) in SKELETONS.items():
+        if any(k in subject for k in kws):
+            return name, shape, fix
+    return "静物", *SKELETONS["静物"][:2]
 
 
 def _norm(s: str) -> str:
@@ -152,6 +203,7 @@ def main() -> None:
     ap.add_argument("--layout", help="指定排版图型，如 SM-01")
     ap.add_argument("--color", help="指定主题色，如 月白")
     ap.add_argument("--no-lint", action="store_true", help="跳过成品自检")
+    ap.add_argument("--concise", action="store_true", help="不打印篇幅体检（明确要短稿时用）")
     ap.add_argument("--json", action="store_true", help="输出机器可读结果")
     ap.add_argument("--list-models", action="store_true", help="列出全部可用模型后退出")
     a = ap.parse_args()
@@ -231,6 +283,7 @@ def main() -> None:
         lint_out = (r.stdout or "").strip()
 
     if a.json:
+        bud = model["budget"]["zh"]
         print(json.dumps({
             "idea": a.idea, "subject": subject, "scene": scene,
             "draft": True,
@@ -240,6 +293,10 @@ def main() -> None:
             "aspect": ratio, "resolution": res,
             "prompt": detail["prompt"], "negative": detail["negative"],
             "params": detail["params"], "lint_ok": lint_ok,
+            "prompt_chars": zh_len(detail["prompt"]),
+            "subject_chars": zh_len(subject),
+            "budget": {"min": bud["min"], "max": bud["max"]},
+            "budget_ratio": round(zh_len(detail["prompt"]) / bud["min"], 2) if bud["min"] else None,
         }, ensure_ascii=False, indent=1))
         sys.exit(0 if lint_ok in (True, None) else 1)
 
@@ -247,6 +304,24 @@ def main() -> None:
     print(f"【配置】模型 {model['label']} · 风格 {picks[0]['code']} {picks[0]['name']} · "
           f"场景 {scene} · 比例 {ratio}" + (f" · 排版 {layout['id']}" if layout else "")
           + (f" · 主题色 {color['name_zh']}" if color else ""))
+
+    n_prompt, n_subject = zh_len(detail["prompt"]), zh_len(subject)
+    if not a.concise:
+        bud = model["budget"]["zh"]
+        pct = int(n_prompt * 100 / bud["min"]) if bud["min"] else 100
+        print(f"【篇幅】{n_prompt} 字 / {model['label']} 预算 {bud['min']}–{bud['max']}（{pct}%）"
+              f" · 主体 {n_subject} 字（建议 60–100）")
+        if pct < 60 or n_subject < 40:
+            kind, shape, fix_typed = guess_skeleton(subject)
+            if n_subject < 40:
+                print(f"        补法：{fix_typed}")
+            else:
+                print("        补法：主体够长了，是这款模型吃得更长——补环境层次与材质细节")
+            print(f"        骨架（{kind}）：{shape}")
+            ex = sample_subject(picks[0])
+            if ex:
+                print(f"        范例（{picks[0]['name']}·内容无关，照它的要素密度写）：{ex}")
+
     print("【定位】草稿通道：模型/风格带默认值。正式交付前按 SKILL.md 第 0 步确认这两项再复跑，"
           "或用 --model / --style 锁定。")
     if detail["negative"]:
